@@ -31,7 +31,7 @@ const SESSIONS = [
   },
   {
     id: 4,
-    tipo: 'Stand',
+    tipo: 'Paralela',
     pauta: 'Apresentação de Cases e Networking',
     autor: 'Equipe de Relacionamento',
     empresa: 'Patrocinadores',
@@ -49,7 +49,7 @@ const SESSIONS = [
   },
   {
     id: 6,
-    tipo: 'Stand',
+    tipo: 'Paralela',
     pauta: 'Feira de Oportunidades: Conecte-se com o Mercado',
     autor: 'Expositores',
     empresa: 'Diversas Empresas',

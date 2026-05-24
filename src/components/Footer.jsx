@@ -81,8 +81,8 @@ const Footer = () => {
           gap: '0.75rem',
           justifyContent: 'center'
         }}>
-          <SocialLink href="https://instagram.com/concentrodf" handle="@concentrodf" />
-          <SocialLink href="https://instagram.com/sabadojr26" handle="@sabadojr26" />
+          <SocialLink href="https://instagram.com/concentrodf" handle="concentrodf" />
+          <SocialLink href="https://instagram.com/sabadojr26" handle="sabadojr26" />
         </div>
       </div>
 

@@ -392,7 +392,7 @@ const Palco = () => {
         ))}
       </div>
 
-      {/* BLOCO 3 - CONSELHEIRO DESTAQUE */}
+      {/* BLOCO 3 - CONSELHEIRO EMBAIXADOR */}
       <div style={{
         margin: '2.5rem 1.5rem 0',
         height: '1px',
@@ -408,7 +408,7 @@ const Palco = () => {
         marginTop: '2.5rem',
         marginBottom: '0.5rem'
       }}>
-        Conselheiro Destaque
+        Conselheiro Embaixador
       </h2>
       
       <p style={{
@@ -466,7 +466,7 @@ const Palco = () => {
             fontSize: '0.7rem',
             marginBottom: '1.25rem'
           }}>
-            Conselheiro Destaque
+            Conselheiro Embaixador
           </div>
 
           <div style={{
