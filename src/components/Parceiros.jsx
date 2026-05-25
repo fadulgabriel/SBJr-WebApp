@@ -39,7 +39,8 @@ const ParceiroCard = ({ parceiro, index }) => {
           objectFit: 'contain',
           opacity: 0.6,
           borderRadius: '4px'
-        }} 
+        }}
+        loading="lazy"
       />
       <div>
         <div style={{
@@ -65,17 +66,17 @@ const ParceiroCard = ({ parceiro, index }) => {
 };
 
 const Parceiros = () => {
-  // Array duplicado para criar o efeito infinito sem cortes
-  const loopParceiros = [...PARCEIROS, ...PARCEIROS];
+  // Array quadruplicado para evitar cortes em telas ultrawide
+  const loopParceiros = [...PARCEIROS, ...PARCEIROS, ...PARCEIROS, ...PARCEIROS];
 
   return (
     <section id="parceiros" style={{ background: '#0d0d0d', padding: '3rem 0 4rem 0' }}>
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes scrollLeft {
+        @keyframes parceirosScrollLeft {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
         }
-        @keyframes scrollRight {
+        @keyframes parceirosScrollRight {
           from { transform: translateX(-50%); }
           to { transform: translateX(0); }
         }
@@ -116,7 +117,7 @@ const Parceiros = () => {
           style={{
             display: 'flex',
             width: 'max-content',
-            animation: 'scrollLeft 18s linear infinite'
+            animation: 'parceirosScrollLeft 36s linear infinite'
           }}
           onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
           onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
@@ -131,7 +132,7 @@ const Parceiros = () => {
           style={{
             display: 'flex',
             width: 'max-content',
-            animation: 'scrollRight 22s linear infinite'
+            animation: 'parceirosScrollRight 44s linear infinite'
           }}
           onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
           onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}

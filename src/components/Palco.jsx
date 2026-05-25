@@ -99,7 +99,7 @@ const CaseCard = ({ caseData, index }) => {
         border: '1px solid rgba(255,255,255,0.08)',
         borderRadius: '24px',
         padding: '1.75rem 1.5rem 1.5rem 1.5rem',
-        borderTop: `3px solid #fc3d0d`,
+        borderTop: '3px solid #704595',
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(24px)' : 'translateY(24px)', // Start state for SSR/before JS
         ...isVisible && { transform: 'translateY(0)' },
@@ -134,8 +134,8 @@ const CaseCard = ({ caseData, index }) => {
           display: 'flex',
           alignItems: 'flex-start',
           gap: '0.5rem',
-          background: 'rgba(252, 61, 13, 0.08)',
-          border: '1px solid rgba(252, 61, 13, 0.15)',
+          background: 'rgba(112, 69, 149, 0.08)',
+          border: '1px solid rgba(112, 69, 149, 0.15)',
           borderRadius: '12px',
           padding: '0.75rem 1rem',
           marginBottom: '1.25rem',
@@ -319,7 +319,7 @@ const Palco = () => {
     }}>
       <div style={{
         height: '2px',
-        background: 'linear-gradient(to right, transparent, #fc3d0d, transparent)',
+        background: 'linear-gradient(to right, transparent, rgba(112, 69, 149, 0.35), transparent)',
         marginBottom: '3rem'
       }} />
 

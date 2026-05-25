@@ -60,7 +60,7 @@ const Footer = () => {
       gap: '1.5rem'
     }}>
       {/* BLOCO 1 — Logo */}
-      <img src={logo} alt="SBJr. Logo" style={{ width: '80px', opacity: 0.7 }} />
+      <img src={logo} alt="SBJr. Logo" loading="lazy" style={{ width: '80px', opacity: 0.7 }} />
 
       {/* BLOCO 2 — Redes sociais */}
       <div>

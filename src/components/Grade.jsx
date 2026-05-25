@@ -281,6 +281,8 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
       const novaMedia = ((mediaAtual * totalAtual) + rating) / novoTotal;
       setMediaAtual(Math.round(novaMedia * 10) / 10);
       setTotalAtual(novoTotal);
+    } else {
+      alert('Falha de conexão. Tente novamente.');
     }
     setSalvando(false);
   };
@@ -455,7 +457,7 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
           )}
 
           <div style={{ textAlign: 'right' }}>
-            <button onClick={onToggle} style={{ background: 'transparent', border: 'none', color: '#54ff00', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', padding: 0, marginTop: '0.75rem' }}>
+            <button onClick={onToggle} style={{ background: 'transparent', border: 'none', color: '#54ff00', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', padding: '0.75rem 0', marginTop: '0.75rem' }}>
               {isOpen ? 'Ver menos ↑' : 'Saiba mais ↓'}
             </button>
           </div>

@@ -160,7 +160,7 @@ const StandCard = ({ stand, index, isOpen, onToggle }) => {
               border: 'none',
               fontSize: '0.8rem',
               cursor: 'pointer',
-              padding: 0,
+              padding: '0.75rem 0',
               marginTop: '0.5rem'
             }}
           >
@@ -169,7 +169,7 @@ const StandCard = ({ stand, index, isOpen, onToggle }) => {
         </div>
 
         <div style={{
-          maxHeight: isOpen ? '300px' : '0',
+          maxHeight: isOpen ? '1000px' : '0',
           opacity: isOpen ? 1 : 0,
           overflow: 'hidden',
           transition: 'max-height 0.35s ease, opacity 0.35s ease'
