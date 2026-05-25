@@ -504,6 +504,7 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
 const Grade = () => {
   const [openCardId, setOpenCardId] = useState(null);
   const [expanded, setExpanded] = useState(false);
+  const gradeRef = useRef(null);
   const [medias, setMedias] = useState({});
 
   useEffect(() => {
@@ -536,7 +537,7 @@ const Grade = () => {
   const deviceId = getDeviceId();
 
   return (
-    <section id="grade" style={{ background: '#0d0d0d', padding: '3rem 0 4rem 0', overflow: 'visible' }}>
+    <section id="grade" ref={gradeRef} style={{ background: '#0d0d0d', padding: '3rem 0 4rem 0', overflow: 'visible' }}>
       <h2 style={{ fontFamily: 'Strelka', fontWeight: 800, color: 'white', fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', padding: '0 1.5rem', marginBottom: '2rem' }}>
         Grade
       </h2>
@@ -555,11 +556,11 @@ const Grade = () => {
               <div style={isMultiple ? {
                 display: 'flex', alignItems: 'flex-start',
                 overflowX: 'auto', overflowY: 'visible',
-                scrollSnapType: 'x mandatory',
+                scrollSnapType: 'x proximity',
+                scrollBehavior: 'smooth',
                 WebkitOverflowScrolling: 'touch',
                 gap: '1rem',
-                padding: '0 1.5rem',
-                paddingBottom: '0.5rem',
+                padding: '0 1.5rem 1rem 1.5rem',
                 scrollbarWidth: 'none', msOverflowStyle: 'none',
               } : {
                 display: 'block', padding: '0 1.5rem', width: '100%',
@@ -591,7 +592,17 @@ const Grade = () => {
 
       {horarios.length > 5 && (
         <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-          <button onClick={() => setExpanded(!expanded)} style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, color: '#54ff00', background: 'transparent', border: '1px solid rgba(84,255,0,0.3)', borderRadius: '9999px', padding: '0.6rem 1.5rem', cursor: 'pointer' }}>
+          <button 
+            onClick={() => {
+              if (expanded) {
+                gradeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => setExpanded(false), 300);
+              } else {
+                setExpanded(true);
+              }
+            }} 
+            style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, color: '#54ff00', background: 'transparent', border: '1px solid rgba(84,255,0,0.3)', borderRadius: '9999px', padding: '0.6rem 1.5rem', cursor: 'pointer' }}
+          >
             {expanded ? 'Ver menos ↑' : 'Ver programação completa →'}
           </button>
         </div>
