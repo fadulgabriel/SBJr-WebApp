@@ -6,6 +6,7 @@ import el8 from '../assets/elementos/el8.png';
 const Hero = () => {
   return (
     <header
+      id="hero"
       style={{
         position: 'relative',
         height: '100svh',

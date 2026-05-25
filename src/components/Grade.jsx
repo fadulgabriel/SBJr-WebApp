@@ -252,7 +252,7 @@ const DecoStand = () => (
   </svg>
 );
 
-const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, totalVotos, deviceId }) => {
+const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, totalVotos, deviceId, isLast }) => {
   const isDireto = session.tipo === 'Direto';
   const votoSalvo = localStorage.getItem(`voted_session_${session.id}`);
   const [rating, setRating] = useState(votoSalvo ? parseInt(votoSalvo) : 0);
@@ -378,6 +378,7 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
         maxWidth: isMultiple ? '320px' : 'none',
         flexShrink: 0,
         scrollSnapAlign: 'start',
+        marginRight: isLast ? '1.5rem' : '0',
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(16px)',
         transition: 'opacity 0.35s ease, transform 0.35s ease',
@@ -560,7 +561,7 @@ const Grade = () => {
                 scrollBehavior: 'smooth',
                 WebkitOverflowScrolling: 'touch',
                 gap: '1rem',
-                padding: '0 1.5rem 1rem 1.5rem',
+                padding: '0 1.5rem 1rem',
                 scrollbarWidth: 'none', msOverflowStyle: 'none',
               } : {
                 display: 'block', padding: '0 1.5rem', width: '100%',
@@ -568,7 +569,7 @@ const Grade = () => {
                 {isMultiple && (
                   <style dangerouslySetInnerHTML={{__html: `#grade div::-webkit-scrollbar { display: none; }`}} />
                 )}
-                {sessions.map(session => (
+                {sessions.map((session, index) => (
                   <SessionCard
                     key={session.id}
                     session={session}
@@ -578,6 +579,7 @@ const Grade = () => {
                     mediaInicial={medias[session.id]?.media || 0}
                     totalVotos={medias[session.id]?.total || 0}
                     deviceId={deviceId}
+                    isLast={index === sessions.length - 1}
                   />
                 ))}
               </div>
@@ -595,7 +597,7 @@ const Grade = () => {
           <button 
             onClick={() => {
               if (expanded) {
-                gradeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('grade')?.scrollIntoView({ behavior: 'smooth', block: 'end' });
                 setTimeout(() => setExpanded(false), 300);
               } else {
                 setExpanded(true);

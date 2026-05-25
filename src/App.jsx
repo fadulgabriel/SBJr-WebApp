@@ -19,7 +19,7 @@ function App() {
       }}>
         <div style={{
           height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.12), transparent)',
+          background: 'linear-gradient(to right, transparent, rgba(112, 69, 149, 0.35), transparent)',
           margin: '0 auto',
         }} />
       </div>
@@ -31,7 +31,7 @@ function App() {
       }}>
         <div style={{
           height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(252, 61, 13, 0.35), transparent)',
+          background: 'linear-gradient(to right, transparent, rgba(112, 69, 149, 0.35), transparent)',
         }} />
       </div>
       <Palco />
@@ -42,7 +42,7 @@ function App() {
       }}>
         <div style={{
           height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent)',
+          background: 'linear-gradient(to right, transparent, rgba(112, 69, 149, 0.35), transparent)',
         }} />
       </div>
       <Parceiros />
