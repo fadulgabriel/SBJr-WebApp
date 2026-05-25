@@ -536,12 +536,12 @@ const Grade = () => {
   const deviceId = getDeviceId();
 
   return (
-    <section id="grade" style={{ background: '#0d0d0d', padding: '3rem 0 4rem 0' }}>
+    <section id="grade" style={{ background: '#0d0d0d', padding: '3rem 0 4rem 0', overflow: 'visible' }}>
       <h2 style={{ fontFamily: 'Strelka', fontWeight: 800, color: 'white', fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', padding: '0 1.5rem', marginBottom: '2rem' }}>
         Grade
       </h2>
 
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', overflow: 'visible' }}>
         {(expanded ? horarios : horarios.slice(0, 5)).map(horario => {
           const sessions = groupedSessions[horario];
           const isMultiple = sessions.length >= 2;
@@ -558,7 +558,8 @@ const Grade = () => {
                 scrollSnapType: 'x mandatory',
                 WebkitOverflowScrolling: 'touch',
                 gap: '1rem',
-                padding: '0 1.5rem 1rem 1.5rem',
+                padding: '0 1.5rem',
+                paddingBottom: '0.5rem',
                 scrollbarWidth: 'none', msOverflowStyle: 'none',
               } : {
                 display: 'block', padding: '0 1.5rem', width: '100%',

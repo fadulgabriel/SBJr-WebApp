@@ -4,11 +4,12 @@ import el8 from '../assets/elementos/el8.png';
 import el1 from '../assets/elementos/el1.png';
 
 const PARCEIROS = [
-  { id: 1, nome: 'BMAI', categoria: 'Patrocinador Master' },
-  { id: 2, nome: 'PWR Coffee', categoria: 'Patrocinador' },
+  { id: 1, nome: 'BMAI', categoria: 'Patrocinador' },
+  { id: 7, nome: 'Kaizen', categoria: 'Patrocinador Master' },
+  { id: 2, nome: 'PWR Coffee', categoria: 'Apoiador' },
   { id: 3, nome: 'EloGroup', categoria: 'Patrocinador' },
-  { id: 4, nome: 'Stoic Capital', categoria: 'Apoiador' },
-  { id: 5, nome: 'R2', categoria: 'Apoiador' },
+  { id: 4, nome: 'Stoic Capital', categoria: 'Patrocinador' },
+  { id: 5, nome: 'R2', categoria: 'Patrocinador' },
   { id: 6, nome: 'Concentro', categoria: 'Realização' },
 ];
 
@@ -105,7 +106,7 @@ const Parceiros = () => {
           fontSize: '0.85rem',
           margin: 0
         }}>
-          Obrigado a quem torna o SBJr. possível
+          Obrigado a quem torna o SBJr. 26 possível
         </p>
       </div>
 

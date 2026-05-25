@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const STANDS = [
   {
-    id: 1,
+    id: 3,
     titulo: 'Diagnóstico Comercial da sua EJ',
-    empresa: 'Empresa Alpha',
+    empresa: 'Takeshi',
     descricao: 'Venha descobrir como está a saúde comercial da sua EJ com nossos especialistas.',
     contato: '(61) 99999-0001',
     horario: '14:00 – 17:00',
@@ -18,7 +18,7 @@ const STANDS = [
     horario: '14:00 – 17:00',
   },
   {
-    id: 3,
+    id: 4,
     titulo: 'Analise seu Currículo Aqui',
     empresa: 'Empresa Gamma',
     descricao: 'Consultores especializados analisam seu currículo e dão feedback na hora.',
@@ -26,10 +26,10 @@ const STANDS = [
     horario: '14:00 – 17:00',
   },
   {
-    id: 4,
-    titulo: 'Como Escalar sua EJ em 6 Meses',
-    empresa: 'Empresa Delta',
-    descricao: 'Cases reais de crescimento acelerado em empresas juniores do DF.',
+    id: 1,
+    titulo: 'Inovação e Empreendedorismo',
+    empresa: 'Sebrae DF',
+    descricao: 'Ativação interativa sobre inovação e empreendedorismo para estudantes universitários.',
     contato: '(61) 99999-0004',
     horario: '14:00 – 17:00',
   },
