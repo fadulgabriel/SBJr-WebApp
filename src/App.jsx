@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import Hero from './components/Hero'
 import Header from './components/Header'
 import Grade from './components/Grade'
@@ -5,11 +6,15 @@ import Stands from './components/Stands'
 import Palco from './components/Palco'
 import Parceiros from './components/Parceiros'
 import Footer from './components/Footer'
+import Quiz from './components/Quiz'
 
 function App() {
+  const [showQuiz, setShowQuiz] = useState(false);
+
   return (
-    <main>
-      <Hero />
+    <>
+      <main>
+        <Hero onOpen={() => setShowQuiz(true)} />
       <Header />
       <Grade />
       <div style={{
@@ -47,7 +52,9 @@ function App() {
       </div>
       <Parceiros />
       <Footer />
-    </main>
+      </main>
+      {showQuiz && <Quiz onClose={() => setShowQuiz(false)} />}
+    </>
   )
 }
 

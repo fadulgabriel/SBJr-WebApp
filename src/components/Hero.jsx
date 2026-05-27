@@ -3,9 +3,16 @@ import logo from '../assets/logo.png';
 import esfera from '../assets/esfera.png';
 import el8 from '../assets/elementos/el8.png';
 
-const Hero = () => {
+const Hero = ({ onOpen }) => {
   return (
-    <header
+    <>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes borderMove {
+          0% { background-position: 0% 50% }
+          100% { background-position: 300% 50% }
+        }
+      `}} />
+      <header
       id="hero"
       style={{
         position: 'relative',
@@ -80,27 +87,41 @@ const Hero = () => {
         </p>
 
         {/* Botão */}
-        <button onClick={() => console.log('quiz')} style={{
+        <div style={{
           alignSelf: 'flex-start',
-          fontFamily: "'Noir Pro', sans-serif",
-          fontWeight: 700,
-          fontSize: '1rem',
-          background: '#54ff00',
-          color: '#1a0a2e',
-          border: 'none',
+          position: 'relative',
+          display: 'inline-block',
           borderRadius: '9999px',
-          height: '52px',
-          padding: '0 2rem',
-          display: 'inline-flex',
-          alignItems: 'center',
-          cursor: 'pointer',
+          padding: '2px',
+          background: 'linear-gradient(90deg, #54ff00, #f6538c, #704595, #54ff00)',
+          backgroundSize: '300% 100%',
+          animation: 'borderMove 3s linear infinite',
         }}>
-          Descubra sua Trilha →
-        </button>
+          <button onClick={onOpen} style={{
+            fontFamily: "'Noir Pro', sans-serif",
+            fontWeight: 700,
+            fontSize: '1rem',
+            background: '#54ff00',
+            color: '#1a0a2e',
+            border: 'none',
+            borderRadius: '9999px',
+            height: '52px',
+            padding: '0 2rem',
+            display: 'inline-flex',
+            alignItems: 'center',
+            cursor: 'pointer',
+            position: 'relative',
+            zIndex: 1,
+            margin: 0,
+          }}>
+            Descubra sua Trilha →
+          </button>
+        </div>
 
       </div>
 
-    </header>
+      </header>
+    </>
   );
 };
 
