@@ -9,23 +9,24 @@ const QUIZ_CONFIG = {
       texto: "Há quanto tempo você está no MEJ?",
       opcoes: [
         { texto: "Menos de 6 meses", perfil: "trainee", peso: 1 },
-        { texto: "6 meses a 1 ano", perfil: "membro", peso: 1 },
-        { texto: "1 a 2 anos", perfil: "membro", peso: 1 },
-        { texto: "Mais de 2 anos", perfil: "lideranca", peso: 1 },
+        { texto: "6 meses a 1 ano", perfil: "membro", peso: 2 },
+        { texto: "1 a 2 anos", perfil: "lideranca", peso: 1 },
+        { texto: "Mais de 2 anos", perfil: "lideranca", peso: 2 },
       ]
     },
     {
       id: 2,
       texto: "Qual é seu papel hoje na sua Empresa Júnior?",
       opcoes: [
-        { texto: "Ainda estou no processo seletivo / Sou Trainee", perfil: "trainee", peso: 2 },
-        { texto: "Membro de área (Consultor, Assessor, Analista)", perfil: "membro", peso: 2 },
-        { texto: "Coordenador, Gerente, Diretor ou Presidente", perfil: "lideranca", peso: 2 },
+        { texto: "Sou Trainee / Ainda estou no processo seletivo ", perfil: "trainee", peso: 2 },
+        { texto: "Consultor, Assessor ou Analista", perfil: "membro", peso: 2 },
+        { texto: "Coordenador, Gerente ou Supervisor", perfil: "lideranca", peso: 1 },
+        { texto: "Diretor ou Presidente", perfil: "lideranca", peso: 2 },
       ]
     },
     {
       id: 3,
-      texto: "Como você se vê no ecossistema ou no mercado daqui a 1 ano?",
+      texto: "Como você se vê no mercado daqui a 1 ano?",
       opcoes: [
         { texto: "Quero subir de cargo e liderar mais dentro da EJ", perfil: "lideranca", peso: 1 },
         { texto: "Quero usar a EJ para entrar forte no mercado de trabalho", perfil: "membro", peso: 1 },
@@ -35,22 +36,22 @@ const QUIZ_CONFIG = {
     },
     {
       id: 4,
-      texto: "O que você sente que mais trava o crescimento da sua EJ atualmente?",
+      texto: "O que você sente que mais trava o crescimento da EJ atualmente?",
       opcoes: [
-        { texto: "Vendas & Mercado: mercado saturado ou falta de maturidade do time para prospectar e vender de forma agressiva.", trilha: "vendas", peso: 2 },
-        { texto: "Produto & Inovação: portfólio defasado, que entrega pouco valor real ou exige muito esforço para executar.", trilha: "produto", peso: 2 },
-        { texto: "Processos & Finanças: falta de ferramentas e fluxo claro; a EJ vive operando no caos administrativo.", trilha: "processos", peso: 2 },
-        { texto: "Gente & Liderança: falta de alinhamento cultural, membros desmotivados e lideranças despreparadas.", trilha: "gente", peso: 2 },
+        { texto: "[Vendas & Mercado] - Mercado saturado ou falta de maturidade do time para prospectar e vender de forma agressiva.", trilha: "vendas", peso: 2 },
+        { texto: "[Inovação & Produto] - Portfólio defasado, que entrega pouco valor real ou exige muito esforço para executar.", trilha: "produto", peso: 2 },
+        { texto: "[Processos] - A EJ funciona no improviso, sem fluxos claros, e cada pessoa faz do seu jeito.", trilha: "processos", peso: 2 },
+        { texto: "[Gente & Liderança] - Falta de alinhamento cultural, membros desmotivados e lideranças despreparadas.", trilha: "gente", peso: 2 },
       ]
     },
     {
       id: 5,
-      texto: "Se você pudesse resolver apenas UM grande problema na sua EJ hoje, qual seria?",
+      texto: "Se pudesse resolver apenas UM grande problema na EJ hoje, qual seria?",
       opcoes: [
-        { texto: "Vendas & Mercado: atrair mais clientes, fechar contratos maiores e dar mais visibilidade à nossa marca.", trilha: "vendas", peso: 3 },
-        { texto: "Produto & Inovação: melhorar a qualidade das entregas, criar novos serviços e trazer inovação técnica.", trilha: "produto", peso: 3 },
-        { texto: "Processos & Finanças: organizar nossa casa, padronizar processos caóticos e blindar nosso controle financeiro.", trilha: "processos", peso: 3 },
-        { texto: "Gente & Liderança: resolver a desmotivação do time, engajar membros distantes e formar novos líderes.", trilha: "gente", peso: 3 },
+        { texto: "[Vendas & Mercado] - Atrair mais clientes, fechar contratos maiores e dar mais visibilidade à nossa marca.", trilha: "vendas", peso: 3 },
+        { texto: "[Inovação & Produto] - Melhorar a qualidade das entregas, criar novos serviços e trazer inovação técnica.", trilha: "produto", peso: 3 },
+        { texto: "[Processos] - Organizar nossa casa, padronizar processos caóticos.", trilha: "processos", peso: 3 },
+        { texto: "[Gente & Liderança] - Resolver a desmotivação do time, engajar membros distantes e formar novos líderes.", trilha: "gente", peso: 3 },
       ]
     },
   ],
@@ -230,28 +231,33 @@ const Quiz = ({ onClose }) => {
 
   const calculateResult = async () => {
     setLoading(true);
-    let scores = { trainee: 0, membro: 0, lideranca: 0, carreira: 0, comercial: 0, gestao: 0, inovacao: 0 };
+    let scores = { 
+      trainee: 0, membro: 0, lideranca: 0,
+      vendas: 0, produto: 0, processos: 0, gente: 0 
+    };
     
     Object.keys(answers).forEach(qIndex => {
       const option = answers[qIndex];
-      if (option.perfil) scores[option.perfil] += option.peso;
-      if (option.trilha) scores[option.trilha] += option.peso;
+      if (option.perfil && scores[option.perfil] !== undefined) {
+        scores[option.perfil] += option.peso;
+      }
+      if (option.trilha && scores[option.trilha] !== undefined) {
+        scores[option.trilha] += option.peso;
+      }
     });
 
-    const perfis = ['trainee', 'membro', 'lideranca', 'carreira'];
-    let winnerPerfil = perfis.reduce((a, b) => scores[a] > scores[b] ? a : b);
-    
-    if (winnerPerfil === 'carreira') {
-      const others = ['trainee', 'membro', 'lideranca'];
-      winnerPerfil = others.reduce((a, b) => scores[a] > scores[b] ? a : b);
-    }
+    const perfis = ['trainee', 'membro', 'lideranca'];
+    const winnerPerfil = perfis.reduce((a, b) => 
+      scores[a] >= scores[b] ? a : b);
 
-    const trilhas = ['comercial', 'gestao', 'inovacao'];
-    const winnerTrilha = trilhas.reduce((a, b) => scores[a] > scores[b] ? a : b);
+    const trilhas = ['vendas', 'produto', 'processos', 'gente'];
+    const winnerTrilha = trilhas.reduce((a, b) => 
+      scores[a] >= scores[b] ? a : b);
 
     const chave = `${winnerPerfil}_${winnerTrilha}`;
     const nomePerfil = QUIZ_CONFIG.nomesPerfil[chave] || "Sábado Júnior";
-    const recomendacao = QUIZ_CONFIG.recomendacoes[chave] || QUIZ_CONFIG.recomendacoes.trainee_gestao;
+    const recomendacao = QUIZ_CONFIG.recomendacoes[chave] || 
+      QUIZ_CONFIG.recomendacoes.trainee_vendas;
 
     const finalResult = {
       perfil: winnerPerfil,
