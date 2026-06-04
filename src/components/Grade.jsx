@@ -39,6 +39,8 @@ const SESSIONS = [
     sala: 'Sala 1',
     horario: '10:55',
     horarioFim: '12:00',
+    atualizado: true,
+    avisoAtualizacao: 'Sala alterada'
   },
   {
     id: 3,
@@ -328,6 +330,39 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
       >
         <DecoStand />
         <div style={{ position: 'relative', zIndex: 1 }}>
+          {session.atualizado && (
+            <div style={{
+              position: 'absolute',
+              top: '0.75rem',
+              right: '0.75rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.3rem',
+              background: 'rgba(84,255,0,0.12)',
+              border: '1px solid rgba(84,255,0,0.25)',
+              borderRadius: '9999px',
+              padding: '2px 8px',
+              zIndex: 2,
+            }}>
+              <div style={{
+                width: '5px',
+                height: '5px',
+                borderRadius: '50%',
+                background: '#54ff00',
+              }} />
+              <span style={{
+                fontFamily: '"Noir Pro", sans-serif',
+                fontWeight: 700,
+                fontSize: '0.62rem',
+                color: '#54ff00',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                whiteSpace: 'nowrap',
+              }}>
+                {session.avisoAtualizacao || 'Atualizado'}
+              </span>
+            </div>
+          )}
           <h4 style={{
             fontFamily: 'Strelka',
             fontWeight: 800,
@@ -400,6 +435,39 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
       )}
 
       <div style={{ position: 'relative', zIndex: 1 }}>
+        {session.atualizado && (
+          <div style={{
+            position: 'absolute',
+            top: '0.75rem',
+            right: '0.75rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.3rem',
+            background: 'rgba(84,255,0,0.12)',
+            border: '1px solid rgba(84,255,0,0.25)',
+            borderRadius: '9999px',
+            padding: '2px 8px',
+            zIndex: 2,
+          }}>
+            <div style={{
+              width: '5px',
+              height: '5px',
+              borderRadius: '50%',
+              background: '#54ff00',
+            }} />
+            <span style={{
+              fontFamily: '"Noir Pro", sans-serif',
+              fontWeight: 700,
+              fontSize: '0.62rem',
+              color: '#54ff00',
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              whiteSpace: 'nowrap',
+            }}>
+              {session.avisoAtualizacao || 'Atualizado'}
+            </span>
+          </div>
+        )}
         <div style={{
           display: 'inline-block',
           background: tagStyle.background,

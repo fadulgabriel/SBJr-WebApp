@@ -18,10 +18,10 @@ const QUIZ_CONFIG = {
       id: 2,
       texto: "Qual é seu papel hoje na sua Empresa Júnior?",
       opcoes: [
-        { texto: "Sou Trainee / Ainda estou no processo seletivo ", perfil: "trainee", peso: 2 },
+        { texto: "Sou Trainee / Ainda estou no processo seletivo ", perfil: "trainee", peso: 3 },
         { texto: "Consultor, Assessor ou Analista", perfil: "membro", peso: 2 },
         { texto: "Coordenador, Gerente ou Supervisor", perfil: "lideranca", peso: 1 },
-        { texto: "Diretor ou Presidente", perfil: "lideranca", peso: 2 },
+        { texto: "Diretor ou Presidente", perfil: "lideranca", peso: 3 },
       ]
     },
     {
@@ -38,20 +38,20 @@ const QUIZ_CONFIG = {
       id: 4,
       texto: "O que você sente que mais trava o crescimento da EJ atualmente?",
       opcoes: [
-        { texto: "[Vendas & Mercado] - Mercado saturado ou falta de maturidade do time para prospectar e vender de forma agressiva.", trilha: "vendas", peso: 2 },
-        { texto: "[Inovação & Produto] - Portfólio defasado, que entrega pouco valor real ou exige muito esforço para executar.", trilha: "produto", peso: 2 },
-        { texto: "[Processos] - A EJ funciona no improviso, sem fluxos claros, e cada pessoa faz do seu jeito.", trilha: "processos", peso: 2 },
-        { texto: "[Gente & Liderança] - Falta de alinhamento cultural, membros desmotivados e lideranças despreparadas.", trilha: "gente", peso: 2 },
+        { texto: "Falta de maturidade do time para prospectar e vender de forma agressiva.", trilha: "vendas", peso: 2 },
+        { texto: "Portfólio defasado, que entrega pouco valor real ao cliente.", trilha: "produto", peso: 2 },
+        { texto: "A EJ funciona no improviso, sem fluxos claros, e cada pessoa faz do seu jeito.", trilha: "processos", peso: 2 },
+        { texto: "Falta de alinhamento cultural, membros desmotivados e lideranças despreparadas.", trilha: "gente", peso: 2 },
       ]
     },
     {
       id: 5,
       texto: "Se pudesse resolver apenas UM grande problema na EJ hoje, qual seria?",
       opcoes: [
-        { texto: "[Vendas & Mercado] - Atrair mais clientes, fechar contratos maiores e dar mais visibilidade à nossa marca.", trilha: "vendas", peso: 3 },
-        { texto: "[Inovação & Produto] - Melhorar a qualidade das entregas, criar novos serviços e trazer inovação técnica.", trilha: "produto", peso: 3 },
-        { texto: "[Processos] - Organizar nossa casa, padronizar processos caóticos.", trilha: "processos", peso: 3 },
-        { texto: "[Gente & Liderança] - Resolver a desmotivação do time, engajar membros distantes e formar novos líderes.", trilha: "gente", peso: 3 },
+        { texto: "Atrair mais clientes, fechar contratos maiores e dar mais visibilidade à nossa marca.", trilha: "vendas", peso: 3 },
+        { texto: "Melhorar a qualidade das entregas, criar novos serviços e trazer inovação técnica.", trilha: "produto", peso: 3 },
+        { texto: "Organizar nossa casa, padronizar processos caóticos.", trilha: "processos", peso: 3 },
+        { texto: "Resolver a desmotivação do time, engajar membros distantes e formar novos líderes.", trilha: "gente", peso: 3 },
       ]
     },
   ],
