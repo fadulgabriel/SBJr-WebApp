@@ -12,7 +12,6 @@ const CASES = [
       { nome: 'ESTAT', link: '#' },
       { nome: 'AD&M', link: '#' },
       { nome: 'Grupo Gestão', link: '#' },
-      { nome: 'Advocatta', link: '#' },
     ],
   },
   {
@@ -39,7 +38,6 @@ const CASES = [
       { nome: 'ESTAT', link: '#' },
       { nome: 'AD&M', link: '#' },
       { nome: 'Grupo Gestão', link: '#' },
-      { nome: 'Advocatta', link: '#' },
     ],
   },
 ];
@@ -47,26 +45,26 @@ const CASES = [
 const EMBAIXADORAS = [
   {
     posicao: 1,
-    premio: 'Automação da BMAI à sua EJ',
+    premio: 'Intensivão sobre IA da BMAI para sua EJ',
     icone: '🥇',
     corMedal: '#FFD700',
   },
   {
     posicao: 2,
-    premio: 'Mentoria com Carol Finch',
+    premio: 'Mentoria personalizada com Omotenashi à sua EJ',
     icone: '🥈',
     corMedal: '#C0C0C0',
   },
   {
     posicao: 3,
-    premio: 'Mentoria com EloGroup',
+    premio: 'Mentoria personalizada com EloGroup à sua EJ',
     icone: '🥉',
     corMedal: '#CD7F32',
   },
 ];
 
 const CONSELHEIRO = {
-  premio: '2 kits de café da PWR Coffee ☕',
+  premio: '2 kits de café da Petricor ☕',
 };
 
 const CaseCard = ({ caseData, index }) => {
