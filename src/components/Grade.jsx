@@ -386,6 +386,9 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(16px)',
         transition: 'opacity 0.35s ease, transform 0.35s ease',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: tipo === 'MAGNA' ? '160px' : 'auto',
       }}
     >
       {tipo === 'MAGNA' && (
@@ -401,7 +404,7 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
         </svg>
       )}
 
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.5rem' }}>
           <div style={{
             display: 'inline-block',
@@ -449,55 +452,85 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
           )}
         </div>
 
-        <h4 style={{
-          fontFamily: 'Strelka',
-          fontWeight: 800,
-          color: 'white',
-          fontSize: '1rem',
-          lineHeight: 1.2,
-          marginTop: '0.5rem',
-          marginBottom: 0,
-          display: '-webkit-box',
-          WebkitLineClamp: 3,
-          WebkitBoxOrient: 'vertical',
-          overflow: 'hidden',
-        }}>
-          {session.pauta}
-        </h4>
-
-        {(session.autor || session.empresa) && (
-          <p style={{
-            fontFamily: '"Noir Pro", sans-serif',
-            fontWeight: 400,
-            color: 'rgba(255,255,255,0.55)',
-            fontSize: '0.8rem',
-            marginTop: '0.35rem',
+        {tipo === 'MAGNA' ? (
+          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <h4 style={{
+              textAlign: 'center',
+              fontSize: 'clamp(1rem, 4.5vw, 1.3rem)',
+              fontFamily: 'Strelka',
+              fontWeight: 800,
+              color: 'white',
+              lineHeight: 1.2,
+              margin: 0,
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }}>
+              {session.pauta}
+            </h4>
+          </div>
+        ) : (
+          <h4 style={{
+            fontFamily: 'Strelka',
+            fontWeight: 800,
+            color: 'white',
+            fontSize: '1rem',
+            lineHeight: 1.2,
+            marginTop: '0.5rem',
             marginBottom: 0,
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
           }}>
-            {[session.autor, session.empresa].filter(Boolean).join(' • ')}
-          </p>
+            {session.pauta}
+          </h4>
         )}
 
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: '0.75rem', paddingTop: '0.75rem' }}>
-          <div style={{ display: 'flex', gap: '1rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem' }}>
-            {(session.autor || session.empresa) ? (
+        <div style={{
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          marginTop: tipo === 'MAGNA' ? '0.5rem' : '0.75rem',
+          paddingTop: tipo === 'MAGNA' ? '0.5rem' : '0.75rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            fontFamily: '"Noir Pro", sans-serif',
+            fontWeight: 400,
+            color: 'rgba(255,255,255,0.45)',
+            fontSize: tipo === 'MAGNA' ? '0.7rem' : '0.75rem',
+          }}>
+            {tipo !== 'MAGNA' && (session.autor || session.empresa) && (
               <span>
                 👤 {[session.autor, session.empresa].filter(Boolean).join(' · ')}
               </span>
-            ) : null}
+            )}
+            {session.sala && (
+              <span>📍 {session.sala}</span>
+            )}
           </div>
 
-          {mediaAtual > 0 && (
-            <p style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.30)', fontSize: '0.72rem', marginTop: '0.4rem', marginBottom: 0 }}>
-              ★ {mediaAtual} · {totalAtual} avaliações
-            </p>
-          )}
-
-          <div style={{ textAlign: 'right' }}>
-            <button onClick={onToggle} style={{ background: 'transparent', border: 'none', color: '#54ff00', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', padding: '0.75rem 0', marginTop: '0.75rem' }}>
-              {isOpen ? 'Ver menos ↑' : 'Saiba mais ↓'}
-            </button>
-          </div>
+          <button
+            onClick={onToggle}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: '#54ff00',
+              fontFamily: '"Noir Pro", sans-serif',
+              fontWeight: 700,
+              fontSize: '0.8rem',
+              cursor: 'pointer',
+              padding: 0,
+              flexShrink: 0,
+            }}
+          >
+            {isOpen ? 'Ver menos ↑' : 'Saiba mais ↓'}
+          </button>
         </div>
 
         <div style={{ maxHeight: isOpen ? '600px' : '0', opacity: isOpen ? 1 : 0, overflow: 'hidden', transition: 'max-height 0.35s ease, opacity 0.35s ease' }}>
