@@ -47,7 +47,7 @@ const SESSIONS = [
     tipo: 'Paralela',
     pauta: 'Imersão no Cliente: do problema real ao serviço irresistível',
     descricao: 'Como imergir na realidade do seu cliente para entender os problemas que ele precisa resolver — e como alinhar o conhecimento técnico da sua EJ com um serviço verdadeiramente atrativo (alinhamento Projetos → Vendas).',
-    autor: '',
+    autor: 'EloGroup',
     empresa: '',
     sala: 'Sala 2',
     horario: '10:55',
@@ -58,7 +58,7 @@ const SESSIONS = [
     tipo: 'Paralela',
     pauta: 'Gestão de Times e Objetivos Estratégicos',
     descricao: 'Como acompanhar e gerir diferentes equipes para alcançar objetivos estratégicos dentro da EJ. Ferramentas, rituais e cultura de resultado.',
-    autor: '',
+    autor: 'Singular',
     empresa: '',
     sala: 'Sala 3',
     horario: '10:55',
@@ -480,14 +480,11 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: '0.75rem', paddingTop: '0.75rem' }}>
           <div style={{ display: 'flex', gap: '1rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem' }}>
-            {session.autor && (
-              <span style={{ fontFamily: '"Noir Pro", sans-serif', 
-                fontWeight: 400, color: 'rgba(255,255,255,0.45)', 
-                fontSize: '0.75rem' }}>
-                👤 {session.autor}
-                {session.empresa ? ` · ${session.empresa}` : ''}
+            {(session.autor || session.empresa) ? (
+              <span>
+                👤 {[session.autor, session.empresa].filter(Boolean).join(' · ')}
               </span>
-            )}
+            ) : null}
           </div>
 
           {mediaAtual > 0 && (
