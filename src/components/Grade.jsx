@@ -330,39 +330,6 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
       >
         <DecoStand />
         <div style={{ position: 'relative', zIndex: 1 }}>
-          {session.atualizado && (
-            <div style={{
-              position: 'absolute',
-              top: '0.75rem',
-              right: '0.75rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.3rem',
-              background: 'rgba(84,255,0,0.12)',
-              border: '1px solid rgba(84,255,0,0.25)',
-              borderRadius: '9999px',
-              padding: '2px 8px',
-              zIndex: 2,
-            }}>
-              <div style={{
-                width: '5px',
-                height: '5px',
-                borderRadius: '50%',
-                background: '#54ff00',
-              }} />
-              <span style={{
-                fontFamily: '"Noir Pro", sans-serif',
-                fontWeight: 700,
-                fontSize: '0.62rem',
-                color: '#54ff00',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                whiteSpace: 'nowrap',
-              }}>
-                {session.avisoAtualizacao || 'Atualizado'}
-              </span>
-            </div>
-          )}
           <h4 style={{
             fontFamily: 'Strelka',
             fontWeight: 800,
@@ -435,52 +402,51 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
       )}
 
       <div style={{ position: 'relative', zIndex: 1 }}>
-        {session.atualizado && (
+        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.5rem' }}>
           <div style={{
-            position: 'absolute',
-            top: '0.75rem',
-            right: '0.75rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.3rem',
-            background: 'rgba(84,255,0,0.12)',
-            border: '1px solid rgba(84,255,0,0.25)',
+            display: 'inline-block',
+            background: tagStyle.background,
+            color: tagStyle.color,
+            fontSize: '0.7rem',
+            fontFamily: '"Noir Pro", sans-serif',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            padding: '2px 10px',
             borderRadius: '9999px',
-            padding: '2px 8px',
-            zIndex: 2,
           }}>
-            <div style={{
-              width: '5px',
-              height: '5px',
-              borderRadius: '50%',
-              background: '#54ff00',
-            }} />
-            <span style={{
-              fontFamily: '"Noir Pro", sans-serif',
-              fontWeight: 700,
-              fontSize: '0.62rem',
-              color: '#54ff00',
-              textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              whiteSpace: 'nowrap',
-            }}>
-              {session.avisoAtualizacao || 'Atualizado'}
-            </span>
+            {session.tipo}
           </div>
-        )}
-        <div style={{
-          display: 'inline-block',
-          background: tagStyle.background,
-          color: tagStyle.color,
-          fontSize: '0.7rem',
-          fontFamily: '"Noir Pro", sans-serif',
-          fontWeight: 700,
-          textTransform: 'uppercase',
-          padding: '2px 10px',
-          borderRadius: '9999px',
-          marginBottom: '0.5rem',
-        }}>
-          {session.tipo}
+          {session.atualizado && (
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.3rem',
+              background: 'rgba(84,255,0,0.12)',
+              border: '1px solid rgba(84,255,0,0.25)',
+              borderRadius: '9999px',
+              padding: '2px 8px',
+              marginLeft: '0.5rem',
+              verticalAlign: 'middle',
+            }}>
+              <div style={{
+                width: '5px',
+                height: '5px',
+                borderRadius: '50%',
+                background: '#54ff00',
+              }} />
+              <span style={{
+                fontFamily: '"Noir Pro", sans-serif',
+                fontWeight: 700,
+                fontSize: '0.62rem',
+                color: '#54ff00',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                whiteSpace: 'nowrap',
+              }}>
+                {session.avisoAtualizacao || 'Atualizado'}
+              </span>
+            </div>
+          )}
         </div>
 
         <h4 style={{
@@ -514,8 +480,14 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: '0.75rem', paddingTop: '0.75rem' }}>
           <div style={{ display: 'flex', gap: '1rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem' }}>
-            <span>📍 {session.sala}</span>
-            <span>🕐 {session.horario}{session.horarioFim ? ` – ${session.horarioFim}` : ''}</span>
+            {session.autor && (
+              <span style={{ fontFamily: '"Noir Pro", sans-serif', 
+                fontWeight: 400, color: 'rgba(255,255,255,0.45)', 
+                fontSize: '0.75rem' }}>
+                👤 {session.autor}
+                {session.empresa ? ` · ${session.empresa}` : ''}
+              </span>
+            )}
           </div>
 
           {mediaAtual > 0 && (
