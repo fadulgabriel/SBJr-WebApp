@@ -3,64 +3,78 @@ import esfera from '../assets/esfera.png';
 import el8 from '../assets/elementos/el8.png';
 import el1 from '../assets/elementos/el1.png';
 
+import logoSingular from '../assets/parceiros/singular_logo.png';
+import logoOmotenashi from '../assets/parceiros/omotenashi_logo.png';
+import logoBMAI from '../assets/parceiros/bmai.png';
+import logoSebrae from '../assets/parceiros/sebrae_logo.png';
+import logoFanta from '../assets/parceiros/fanta_logo.png';
+import logoDataSynq from '../assets/parceiros/datasynq.png';
+import logoGrupoLevelUp from '../assets/parceiros/grupolu.png';
+import logoCafeRancheiro from '../assets/parceiros/rancheiro_logo.png';
+import logoCriamov from '../assets/parceiros/criamov_logo.png';
+import logoEloGroup from '../assets/parceiros/elo_group.png';
+import logoMonster from '../assets/parceiros/monster.png';
+import logoMultiCarreiras from '../assets/parceiros/multicarreira.png';
+import logoMilkMoo from '../assets/parceiros/milkymoo_logo.png';
+import logoRiccoBurger from '../assets/parceiros/ricco_logo.png';
+import logoKaizen from '../assets/parceiros/kaizen_logo.png';
+import logoStone from '../assets/parceiros/stone.png';
+import logoSBJr from '../assets/logo.png';
+
 const PARCEIROS = [
-  { id: 1, nome: 'BMAI', categoria: 'Patrocinador' },
-  { id: 7, nome: 'Kaizen', categoria: 'Patrocinador Master' },
-  { id: 2, nome: 'PWR Coffee', categoria: 'Apoiador' },
-  { id: 3, nome: 'EloGroup', categoria: 'Patrocinador' },
-  { id: 4, nome: 'Stoic Capital', categoria: 'Patrocinador' },
-  { id: 5, nome: 'R2', categoria: 'Patrocinador' },
-  { id: 6, nome: 'Concentro', categoria: 'Realização' },
+  { id: 1,  nome: 'Singular',         logo: logoSingular },
+  { id: 2,  nome: 'Omotenashi',       logo: logoOmotenashi },
+  { id: 3,  nome: 'BMAI',             logo: logoBMAI },
+  { id: 4,  nome: 'Sebrae',           logo: logoSebrae },
+  { id: 5,  nome: 'Fanta',            logo: logoFanta },
+  { id: 6,  nome: 'DataSynq',         logo: logoDataSynq },
+  { id: 7,  nome: 'Grupo Level Up',   logo: logoGrupoLevelUp },
+  { id: 8,  nome: 'Café Rancheiro',   logo: logoCafeRancheiro },
+  { id: 9,  nome: 'CRIAmov',          logo: logoCriamov },
+  { id: 10, nome: 'EloGroup',         logo: logoEloGroup },
+  { id: 11, nome: 'Monster',          logo: logoMonster },
+  { id: 12, nome: 'Atuar',            logo: logoSBJr },
+  { id: 13, nome: 'Multi Carreiras',  logo: logoMultiCarreiras },
+  { id: 14, nome: 'Verbalize',        logo: logoSBJr },
+  { id: 15, nome: 'MilkMoo',          logo: logoMilkMoo },
+  { id: 16, nome: 'Ricco Burger',     logo: logoRiccoBurger },
+  { id: 17, nome: 'Kaizen',           logo: logoKaizen },
+  { id: 18, nome: 'IZE',              logo: logoSBJr },
+  { id: 19, nome: 'Stone',            logo: logoStone },
 ];
 
-const ParceiroCard = ({ parceiro, index }) => {
-  const images = [esfera, el8, el1];
-  const logoSrc = images[index % 3];
-
+const ParceiroCard = ({ parceiro }) => {
   return (
     <div style={{
       display: 'inline-flex',
       alignItems: 'center',
-      gap: '0.75rem',
+      gap: '0.6rem',
       background: 'rgba(255,255,255,0.04)',
       border: '1px solid rgba(255,255,255,0.08)',
       borderRadius: '12px',
-      padding: '0.6rem 1rem',
+      padding: '0.5rem 1rem',
       marginRight: '0.75rem',
       flexShrink: 0,
-      whiteSpace: 'nowrap'
+      whiteSpace: 'nowrap',
     }}>
-      <img 
-        src={logoSrc} 
-        alt="" 
+      <img
+        src={parceiro.logo}
+        alt={parceiro.nome}
         style={{
           width: '28px',
           height: '28px',
           objectFit: 'contain',
-          opacity: 0.6,
-          borderRadius: '4px'
+          borderRadius: '4px',
         }}
-        loading="lazy"
       />
-      <div>
-        <div style={{
-          fontFamily: '"Noir Pro", sans-serif',
-          fontWeight: 700,
-          color: 'white',
-          fontSize: '0.82rem'
-        }}>
-          {parceiro.nome}
-        </div>
-        <div style={{
-          fontFamily: '"Noir Pro", sans-serif',
-          fontWeight: 400,
-          color: 'rgba(255,255,255,0.30)',
-          fontSize: '0.68rem',
-          marginTop: '1px'
-        }}>
-          {parceiro.categoria}
-        </div>
-      </div>
+      <span style={{
+        fontFamily: '"Noir Pro", sans-serif',
+        fontWeight: 700,
+        color: 'white',
+        fontSize: '0.82rem',
+      }}>
+        {parceiro.nome}
+      </span>
     </div>
   );
 };
@@ -117,10 +131,8 @@ const Parceiros = () => {
           style={{
             display: 'flex',
             width: 'max-content',
-            animation: 'parceirosScrollLeft 36s linear infinite'
+            animation: 'parceirosScrollLeft 66s linear infinite'
           }}
-          onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
-          onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
         >
           {loopParceiros.map((p, idx) => (
             <ParceiroCard key={`t1-${idx}`} parceiro={p} index={idx} />
@@ -132,10 +144,9 @@ const Parceiros = () => {
           style={{
             display: 'flex',
             width: 'max-content',
-            animation: 'parceirosScrollRight 44s linear infinite'
+            animation: 'parceirosScrollRight 76s linear infinite'
           }}
-          onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
-          onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
+      
         >
           {/* Reversão apenas visual do array para diferenciar a linha inferior */}
           {[...loopParceiros].reverse().map((p, idx) => (
