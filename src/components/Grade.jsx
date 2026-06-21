@@ -8,244 +8,232 @@ const SESSIONS = [
     tipo: 'Direto',
     pauta: 'Credenciamento',
     descricao: 'Retire seu crachá, pegue seu kit e prepare-se para um dia incrível. A equipe de organização estará à disposição para te receber.',
-    autor: '',
-    empresa: '',
+    autor: '', empresa: '',
     sala: 'Entrada Principal',
-    horario: '08:00',
-    horarioFim: '09:30',
+    horario: '08:00', horarioFim: '',
   },
 
   // ── MAGNA 1 ──
   {
     id: 1,
     tipo: 'Magna',
-    pauta: 'O mercado de 2026 não te espera',
+    pauta: 'O Mercado não te espera!',
     descricao: 'Uma visão direta e sem filtros sobre o que o mercado exige das empresas juniores hoje. O que mudou, o que não vai voltar e o que você precisa fazer agora.',
-    autor: '',
-    empresa: '',
-    sala: 'Auditório Principal',
-    horario: '09:30',
-    horarioFim: '10:30',
+    autor: '', empresa: 'Kaizen',
+    sala: 'Palco Principal',
+    horario: '09:45', horarioFim: '10:30',
   },
 
-  // ── PARALELAS RODADA 1 ──
+    // ── ABERTURA ──
   {
-    id: 2,
-    tipo: 'Paralela',
-    pauta: 'IA e o Valor da Consultoria: como se posicionar num mercado em transformação',
-    descricao: 'O efeito da mudança no mercado causada pela IA sobre a percepção de valor do cliente em relação a uma consultoria. Como reposicionar sua EJ para continuar sendo relevante.',
+    id: 20,
+    tipo: 'Direto',
+    pauta: 'Abertura com os MCs',
+    descricao: 'Os MCs abrem o evento, apresentam o que vem por aí e passam uma mensagem rápida sobre o dia. O aquecimento antes da largada.',
     autor: '',
-    empresa: '',
+    empresa: 'Vinícius Cruz + Helena Vasconcelos',
+    sala: 'Palco Principal',
+    horario: '09:30',
+    horarioFim: '',
+  },
+ 
+  // ── PARALELAS MANHÃ ──
+  {
+    id: 3, codigo: '1.1',
+    tipo: 'Paralela',
+    pauta: 'IA e o valor da consultoria',
+    descricao: 'Reposicionando seu valor numa era em que a IA faz o trabalho técnico de graça.',
+    autor: '', empresa: 'EloGroup',
     sala: 'Sala 1',
-    horario: '10:55',
-    horarioFim: '12:00',
-    atualizado: true,
-    avisoAtualizacao: 'Sala alterada'
-  },
+    horario: '10:50', horarioFim: '', 
+    atualizado: false,
+    avisoAtualizacao: 'Pauta atualizada',},
   {
-    id: 3,
+    id: 4, codigo: '1.2',
     tipo: 'Paralela',
-    pauta: 'Imersão no Cliente: do problema real ao serviço irresistível',
-    descricao: 'Como imergir na realidade do seu cliente para entender os problemas que ele precisa resolver — e como alinhar o conhecimento técnico da sua EJ com um serviço verdadeiramente atrativo (alinhamento Projetos → Vendas).',
-    autor: 'EloGroup',
-    empresa: '',
+    pauta: 'Pare de vender o que você sabe fazer',
+    descricao: 'Como imergir na realidade do seu cliente para entender os problemas que ele precisa ter resolvidos e alinhar o conhecimento técnico nativo da sua EJ com um serviço verdadeiramente atrativo para o mercado.',
+    autor: '', empresa: 'Singular',
     sala: 'Sala 2',
-    horario: '10:55',
-    horarioFim: '12:00',
+    horario: '10:50', horarioFim: '',
   },
   {
-    id: 4,
+    id: 5, codigo: '1.3',
     tipo: 'Paralela',
-    pauta: 'Gestão de Times e Objetivos Estratégicos',
-    descricao: 'Como acompanhar e gerir diferentes equipes para alcançar objetivos estratégicos dentro da EJ. Ferramentas, rituais e cultura de resultado.',
-    autor: 'Singular',
-    empresa: '',
+    pauta: 'Quanto cobrar sem ter medo',
+    descricao: 'Como construir uma gestão financeira que garanta a operação da EJ no curto, médio e longo prazo.',
+    autor: '', empresa: 'Stone',
     sala: 'Sala 3',
-    horario: '10:55',
-    horarioFim: '12:00',
+    horario: '10:50', horarioFim: '12:00',
   },
   {
-    id: 5,
+    id: 6, codigo: '1.4',
     tipo: 'Paralela',
-    pauta: 'Novos Nichos: mercados que precisam de você e ainda não sabem',
-    descricao: 'Como explorar novos nichos que hoje você nem sabe que precisam do seu conhecimento. Metodologia para identificar, validar e entrar em mercados inexplorados.',
-    autor: '',
-    empresa: '',
+    pauta: 'Onde está o dinheiro que você não está vendo',
+    descricao: 'Como achar demanda para o que sua EJ já sabe fazer. Como explorar novos nichos que hoje você nem sabe que precisam do seu conhecimento.',
+    autor: '', empresa: 'Gabriel Fiuza',
     sala: 'Sala 4',
-    horario: '10:55',
-    horarioFim: '12:00',
+    horario: '10:50', horarioFim: '12:00',
   },
   {
-    id: 6,
+    id: 7, codigo: '1.5',
     tipo: 'Paralela',
-    pauta: 'Mapeamento e Redesenho de Processos na EJ',
-    descricao: 'Como mapear seus processos atuais e como remodelá-los para aproximar a EJ dos seus objetivos estratégicos. Da análise ao redesenho com foco em resultado.',
-    autor: '',
-    empresa: '',
+    pauta: 'Da bagunça à entrega',
+    descricao: 'Redesenhe os processos que estão travando sua EJ de crescer. Como mapear seus processos atuais e remodelá-los para aproximar a EJ de seus objetivos.',
+    autor: '', empresa: 'Bruno Kawano',
     sala: 'Sala 5',
-    horario: '10:55',
-    horarioFim: '12:00',
+    horario: '10:50', horarioFim: '12:00',
   },
   {
-    id: 7,
+    id: 8, codigo: '1.6',
     tipo: 'Paralela',
-    pauta: 'Pauta a Definir',
-    descricao: 'Conteúdo em breve.',
-    autor: '',
-    empresa: '',
+    pauta: 'Quando tudo é urgente',
+    descricao: 'Como uma liderança decide o que atacar primeiro (e o que deixar morrer).',
+    autor: '', empresa: 'Victoria Puchalski',
     sala: 'Sala 6',
-    horario: '10:55',
-    horarioFim: '12:00',
+    horario: '10:50', horarioFim: '12:00',
   },
 
   // ── ALMOÇO ──
   {
-    id: 8,
+    id: 9,
     tipo: 'Direto',
-    pauta: 'Almoço com Benchs',
-    descricao: 'Momento de troca e networking enquanto você recarrega as energias. Aproveite para conversar com líderes de outras EJs e tirar insights do dia.',
-    autor: '',
-    empresa: '',
-    sala: '',
-    horario: '12:30',
-    horarioFim: '13:50',
+    pauta: 'Almoço',
+    descricao: 'Momento de recarregar as energias. Aproveite para conversar com líderes de outras EJs e tirar insights do dia.',
+    autor: '', empresa: '',
+    sala: 'Área de Alimentação CEUB',
+    horario: '12:00', horarioFim: '',
   },
 
   // ── DINÂMICA ──
   {
-    id: 9,
+    id: 10,
     tipo: 'Direto',
     pauta: 'Dinâmica',
     descricao: 'Momento de integração e movimento. Venha preparado para sair da cadeira.',
-    autor: '',
-    empresa: '',
-    sala: 'Quadra Principal',
-    horario: '14:10',
-    horarioFim: '14:30',
+    autor: '', empresa: '',
+    sala: 'Palco Principal',
+    horario: '13:45', horarioFim: '',
   },
 
-  // ── PARALELAS RODADA 2 ──
+  // ── PARALELAS TARDE ──
   {
-    id: 10,
+    id: 11, codigo: '2.1',
     tipo: 'Paralela',
-    pauta: 'Desligamentos na EJ: quando, por que e como fazer',
-    descricao: 'Por que tirar membros e lideranças desalinhados da sua EJ é necessário — e como conduzir esse processo com clareza, justiça e sem destruir a cultura.',
-    autor: '',
-    empresa: '',
+    pauta: 'Como lidar com pessoas desalinhadas',
+    descricao: 'O custo da omissão. Por que tirar membros (e lideranças) desalinhados da sua EJ e como fazer.',
+    autor: '', empresa: 'Leonardo Ratto',
     sala: 'Sala 1',
-    horario: '14:55',
-    horarioFim: '15:55',
+    horario: '14:30', horarioFim: '',
   },
   {
-    id: 11,
+    id: 12, codigo: '2.2',
     tipo: 'Paralela',
-    pauta: 'Projetos de Impacto: como vender e como entregar',
-    descricao: 'Como vender um projeto de impacto e como garantir um relatório aprovado. Didática prática de quem já fez e sabe o que funciona.',
-    autor: '',
-    empresa: '',
+    pauta: 'Sozinho você fatura, em rede você impacta',
+    descricao: 'Como fechar projetos colaborativos com outras EJs e agentes do ecossistema.',
+    autor: '', empresa: 'Cacau',
     sala: 'Sala 2',
-    horario: '14:55',
-    horarioFim: '15:55',
+    horario: '14:30', horarioFim: '',
   },
   {
-    id: 12,
+    id: 13, codigo: '2.3',
     tipo: 'Paralela',
-    pauta: 'Diversidade & Inclusão na EJ: cultura e relatório aprovado',
-    descricao: 'Como garantir uma organização inclusiva na prática e como estruturar um relatório de D&I aprovado. Do discurso à política real.',
-    autor: '',
-    empresa: '',
+    pauta: 'De onde vêm seus clientes',
+    descricao: 'Gerando demanda e autoridade para sua EJ parar de depender de indicação. Foco em consciência sobre relevância e primeiros passos para posicionamento de marca.',
+    autor: '', empresa: 'CRIAmov',
     sala: 'Sala 3',
-    horario: '14:55',
-    horarioFim: '15:55',
+    horario: '14:30', horarioFim: '',
   },
   {
-    id: 13,
+    id: 14, codigo: '2.4',
     tipo: 'Paralela',
-    pauta: 'Funil de Vendas Previsível: da prospecção ao fechamento',
-    descricao: 'Como tornar seu funil de vendas previsível com processos claros, cadências definidas e métricas que revelam gargalos antes que virem problema.',
-    autor: '',
-    empresa: '',
+    pauta: 'Workshop: Funil de vendas previsível',
+    descricao: 'Previsibilidade no lugar da sorte: o funil de vendas que tira sua EJ do zero a zero.',
+    autor: '', empresa: 'Singular',
     sala: 'Sala 4',
-    horario: '14:55',
-    horarioFim: '15:55',
+    horario: '14:30', horarioFim: '15:30',
   },
   {
-    id: 14,
+    id: 15, codigo: '2.5',
     tipo: 'Paralela',
-    pauta: 'Sucesso do Cliente: execução de projetos que fidelizam',
-    descricao: 'Como garantir o sucesso do cliente com um bom processo de execução de projetos — da passagem de bastão entre vendas e projetos até a entrega que gera indicação.',
-    autor: '',
-    empresa: '',
+    pauta: 'O cliente que volta e indica',
+    descricao: 'Execução e gerenciamento que vira CSAT alto e novo contrato. Como garantir o sucesso do cliente com um bom processo de execução dos projetos.',
+    autor: '', empresa: 'Vitor Feijó',
     sala: 'Sala 5',
-    horario: '14:55',
-    horarioFim: '15:55',
+    horario: '14:30', horarioFim: '15:30',
   },
   {
-    id: 15,
+    id: 16, codigo: '2.6',
     tipo: 'Paralela',
-    pauta: 'Pauta a Definir',
-    descricao: 'Conteúdo em breve.',
-    autor: '',
-    empresa: '',
+    pauta: 'Como liderar pessoas em cenários críticos',
+    descricao: 'Detalhamento em breve.',
+    autor: '', empresa: 'Inova Duda + Tilda',
     sala: 'Sala 6',
-    horario: '14:55',
-    horarioFim: '15:55',
+    horario: '14:30', horarioFim: '',
   },
 
   // ── STANDS ──
   {
-    id: 16,
+    id: 17,
     tipo: 'Direto',
     pauta: 'Stands',
-    descricao: 'Explore os stands dos parceiros e patrocinadores. Converse com as empresas, conheça soluções e amplie sua rede.',
-    autor: '',
-    empresa: '',
-    sala: 'Área de Stands',
-    horario: '16:00',
-    horarioFim: '16:50',
+    descricao: 'Explore os stands dos parceiros. Converse com as empresas, conheça soluções e amplie sua rede.',
+    autor: '', empresa: '',
+    sala: 'Corredor de Stands',
+    horario: '15:20', horarioFim: '',
   },
 
   // ── MAGNA 2 ──
   {
-    id: 17,
+    id: 18,
     tipo: 'Magna',
-    pauta: 'Cresça ou fique para trás!',
+    pauta: 'Cresça ou Fique para Trás',
     descricao: 'O encerramento que vai te fazer sair diferente. Uma provocação direta sobre crescimento, urgência e o que separa as EJs que evoluem das que ficam paradas.',
-    autor: '',
-    empresa: '',
-    sala: 'Auditório Principal',
-    horario: '16:50',
-    horarioFim: '17:20',
+    autor: '', empresa: 'Vinícius Cruz + Helena Vasconcelos',
+    sala: 'Palco Principal',
+    horario: '16:30', horarioFim: '',
   },
 
   // ── CONSTRUÇÃO ──
   {
-    id: 18,
+    id: 19,
     tipo: 'Direto',
     pauta: 'Construção',
-    descricao: 'Momento coletivo de reflexão e construção. Mais detalhes no evento.',
-    autor: '',
-    empresa: '',
-    sala: '',
-    horario: '17:20',
-    horarioFim: '18:10',
+    descricao: 'Transforme as ideias em planejamento num momento coletivo com sua EJ!',
+    autor: '', empresa: '',
+    sala: 'Palco Principal',
+    horario: '17:10', horarioFim: '',
   },
 
   // ── PALCO ──
   {
-    id: 19,
+    id: 20,
     tipo: 'Direto',
     pauta: 'Palco',
     descricao: 'Cases, premiações e o grande momento do evento. Não saia antes.',
+    autor: '', empresa: '',
+    sala: 'Palco Principal',
+    horario: '18:10', horarioFim: '',
+  },
+
+
+    // ── ENCERRAMENTO ──
+
+  {
+    id: 21,
+    tipo: 'Direto',
+    pauta: 'Encerramento',
+    descricao: 'O Sábado Júnior 2026 chega ao fim. Obrigado por estar aqui — agora vai lá e aplica tudo isso.',
     autor: '',
     empresa: '',
-    sala: 'Auditório Principal',
-    horario: '18:25',
-    horarioFim: '19:15',
+    sala: 'Palco Principal',
+    horario: '19:00',
+    horarioFim: '',
   },
+
+
 ];
 
-// SVG decorativo reutilizável para cards Direto (retângulo do stand)
 const DecoStand = () => (
   <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg"
     style={{ position: 'absolute', top: '-1rem', right: '-1rem', width: '90px', pointerEvents: 'none', opacity: 0.12, zIndex: 0 }}>
@@ -308,55 +296,25 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
   };
   const tagStyle = getTagStyle(tipo);
 
-  // ── Card Direto (Credenciamento, Almoço, Dinâmica, Stands, Construção, Palco)
   if (isDireto) {
     return (
-      <div
-        ref={cardRef}
-        style={{
-          boxSizing: 'border-box',
-          position: 'relative',
-          overflow: 'hidden',
-          background: 'rgba(112,69,149,0.08)',
-          border: '1px solid rgba(112,69,149,0.20)',
-          borderLeft: '3px solid #704595',
-          borderRadius: '16px',
-          padding: '1rem 1.25rem',
-          width: '100%',
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateY(0)' : 'translateY(16px)',
-          transition: 'opacity 0.35s ease, transform 0.35s ease',
-        }}
-      >
+      <div ref={cardRef} style={{
+        boxSizing: 'border-box', position: 'relative', overflow: 'hidden',
+        background: 'rgba(112,69,149,0.08)', border: '1px solid rgba(112,69,149,0.20)',
+        borderLeft: '3px solid #704595', borderRadius: '16px', padding: '1rem 1.25rem',
+        width: '100%', opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(16px)',
+        transition: 'opacity 0.35s ease, transform 0.35s ease',
+      }}>
         <DecoStand />
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <h4 style={{
-            fontFamily: 'Strelka',
-            fontWeight: 800,
-            color: 'rgba(255,255,255,0.90)',
-            fontSize: '1.1rem',
-            lineHeight: 1.2,
-            margin: '0 0 0.35rem 0',
-          }}>
+          <h4 style={{ fontFamily: 'Strelka', fontWeight: 800, color: 'rgba(255,255,255,0.90)', fontSize: '1.1rem', lineHeight: 1.2, margin: '0 0 0.35rem 0' }}>
             {session.pauta}
           </h4>
-          <p style={{
-            fontFamily: '"Noir Pro", sans-serif',
-            fontWeight: 400,
-            color: 'rgba(255,255,255,0.45)',
-            fontSize: '0.78rem',
-            margin: '0 0 0.6rem 0',
-            lineHeight: 1.4,
-          }}>
+          <p style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.45)', fontSize: '0.78rem', margin: '0 0 0.6rem 0', lineHeight: 1.4 }}>
             {session.descricao}
           </p>
-          <div style={{
-            display: 'flex', gap: '1rem',
-            fontFamily: '"Noir Pro", sans-serif',
-            fontWeight: 400,
-            color: 'rgba(255,255,255,0.30)',
-            fontSize: '0.72rem',
-          }}>
+          <div style={{ display: 'flex', gap: '1rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.30)', fontSize: '0.72rem' }}>
             {session.sala && <span>📍 {session.sala}</span>}
             <span>🕐 {session.horario}{session.horarioFim ? ` – ${session.horarioFim}` : ''}</span>
           </div>
@@ -365,32 +323,21 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
     );
   }
 
-  // ── Card de Conteúdo (Magna / Paralela)
   return (
-    <div
-      ref={cardRef}
-      style={{
-        boxSizing: 'border-box',
-        alignSelf: 'flex-start',
-        position: 'relative',
-        overflow: 'hidden',
-        background: 'rgba(255,255,255,0.05)',
-        border: '1px solid rgba(255,255,255,0.10)',
-        borderRadius: '16px',
-        padding: '1.25rem',
-        width: isMultiple ? 'calc(85vw - 3rem)' : '100%',
-        maxWidth: isMultiple ? '320px' : 'none',
-        flexShrink: 0,
-        scrollSnapAlign: 'start',
-        marginRight: isLast ? '1.5rem' : '0',
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(16px)',
-        transition: 'opacity 0.35s ease, transform 0.35s ease',
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: tipo === 'MAGNA' ? '160px' : 'auto',
-      }}
-    >
+    <div ref={cardRef} style={{
+      boxSizing: 'border-box', alignSelf: 'flex-start', position: 'relative', overflow: 'hidden',
+      background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.10)',
+      borderRadius: '16px', padding: '1.25rem',
+      width: isMultiple ? 'calc(85vw - 3rem)' : '100%',
+      maxWidth: isMultiple ? '320px' : 'none',
+      flexShrink: 0, scrollSnapAlign: 'start',
+      marginRight: isLast ? '1.5rem' : '0',
+      opacity: isVisible ? 1 : 0,
+      transform: isVisible ? 'translateY(0)' : 'translateY(16px)',
+      transition: 'opacity 0.35s ease, transform 0.35s ease',
+      display: 'flex', flexDirection: 'column',
+      minHeight: tipo === 'MAGNA' ? '160px' : 'auto',
+    }}>
       {tipo === 'MAGNA' && (
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
           style={{ position: 'absolute', top: '-1rem', right: '-1rem', width: '100px', pointerEvents: 'none', opacity: 0.15, zIndex: 0 }}>
@@ -406,46 +353,13 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
 
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.5rem' }}>
-          <div style={{
-            display: 'inline-block',
-            background: tagStyle.background,
-            color: tagStyle.color,
-            fontSize: '0.7rem',
-            fontFamily: '"Noir Pro", sans-serif',
-            fontWeight: 700,
-            textTransform: 'uppercase',
-            padding: '2px 10px',
-            borderRadius: '9999px',
-          }}>
+          <div style={{ display: 'inline-block', background: tagStyle.background, color: tagStyle.color, fontSize: '0.7rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', padding: '2px 10px', borderRadius: '9999px' }}>
             {session.tipo}
           </div>
           {session.atualizado && (
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.3rem',
-              background: 'rgba(84,255,0,0.12)',
-              border: '1px solid rgba(84,255,0,0.25)',
-              borderRadius: '9999px',
-              padding: '2px 8px',
-              marginLeft: '0.5rem',
-              verticalAlign: 'middle',
-            }}>
-              <div style={{
-                width: '5px',
-                height: '5px',
-                borderRadius: '50%',
-                background: '#54ff00',
-              }} />
-              <span style={{
-                fontFamily: '"Noir Pro", sans-serif',
-                fontWeight: 700,
-                fontSize: '0.62rem',
-                color: '#54ff00',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                whiteSpace: 'nowrap',
-              }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', background: 'rgba(84,255,0,0.12)', border: '1px solid rgba(84,255,0,0.25)', borderRadius: '9999px', padding: '2px 8px' }}>
+              <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#54ff00' }} />
+              <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, fontSize: '0.62rem', color: '#54ff00', textTransform: 'uppercase', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>
                 {session.avisoAtualizacao || 'Atualizado'}
               </span>
             </div>
@@ -454,81 +368,56 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
 
         {tipo === 'MAGNA' ? (
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <h4 style={{
-              textAlign: 'center',
-              fontSize: 'clamp(1rem, 4.5vw, 1.3rem)',
-              fontFamily: 'Strelka',
-              fontWeight: 800,
-              color: 'white',
-              lineHeight: 1.2,
-              margin: 0,
-              display: '-webkit-box',
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-            }}>
+            <h4 style={{ textAlign: 'center', fontSize: 'clamp(0.85rem, 3.8vw, 1.2rem)', fontFamily: 'Strelka', fontWeight: 800, color: 'white', lineHeight: 1.2, margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', whiteSpace: 'nowrap' }}>
               {session.pauta}
             </h4>
           </div>
         ) : (
-          <h4 style={{
-            fontFamily: 'Strelka',
-            fontWeight: 800,
-            color: 'white',
-            fontSize: '1rem',
-            lineHeight: 1.2,
-            marginTop: '0.5rem',
-            marginBottom: 0,
-            display: '-webkit-box',
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }}>
+          <h4 style={{ fontFamily: 'Strelka', fontWeight: 800, color: 'white', fontSize: '1rem', lineHeight: 1.2, marginTop: '0.5rem', marginBottom: 0, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
             {session.pauta}
           </h4>
         )}
 
         <div style={{
           borderTop: '1px solid rgba(255,255,255,0.08)',
-          marginTop: tipo === 'MAGNA' ? '0.5rem' : '0.75rem',
-          paddingTop: tipo === 'MAGNA' ? '0.5rem' : '0.75rem',
+          marginTop: '0.75rem',
+          paddingTop: '0.75rem',
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-end',
           justifyContent: 'space-between',
         }}>
           <div style={{
             display: 'flex',
-            alignItems: 'center',
-            gap: '0.75rem',
+            flexDirection: 'column',
+            gap: '0.25rem',
             fontFamily: '"Noir Pro", sans-serif',
             fontWeight: 400,
             color: 'rgba(255,255,255,0.45)',
-            fontSize: tipo === 'MAGNA' ? '0.7rem' : '0.75rem',
+            fontSize: '0.75rem',
           }}>
             {tipo !== 'MAGNA' && (session.autor || session.empresa) && (
-              <span>
-                👤 {[session.autor, session.empresa].filter(Boolean).join(' · ')}
-              </span>
+              <span>👤 {[session.autor, session.empresa].filter(Boolean).join(' · ')}</span>
+            )}
+            {tipo === 'MAGNA' && session.empresa && (
+              <span>👤 {session.empresa}</span>
             )}
             {session.sala && (
               <span>📍 {session.sala}</span>
             )}
           </div>
 
-          <button
-            onClick={onToggle}
-            style={{
-              background: 'transparent',
-              border: 'none',
-              color: '#54ff00',
-              fontFamily: '"Noir Pro", sans-serif',
-              fontWeight: 700,
-              fontSize: '0.8rem',
-              cursor: 'pointer',
-              padding: 0,
-              flexShrink: 0,
-            }}
-          >
+          <button onClick={onToggle} style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#54ff00',
+            fontFamily: '"Noir Pro", sans-serif',
+            fontWeight: 700,
+            fontSize: '0.8rem',
+            cursor: 'pointer',
+            padding: 0,
+            flexShrink: 0,
+            marginLeft: '0.5rem',
+          }}>
             {isOpen ? 'Ver menos ↑' : 'Saiba mais ↓'}
           </button>
         </div>
@@ -538,11 +427,10 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
             <p style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginTop: '0.5rem', marginBottom: '1rem', lineHeight: 1.5 }}>
               {session.descricao}
             </p>
-
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
                 <p style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', margin: 0 }}>
-                  {jaVotou ? 'Obrigado pela avaliação!' : 'Avalie esta sessão'}
+                  {jaVotou ? 'Obrigado pela avaliação!' : 'Avalie a pauta'}
                 </p>
                 {totalAtual > 0 && (
                   <p style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.30)', fontSize: '0.72rem', margin: 0 }}>
@@ -552,9 +440,7 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
               </div>
               <div style={{ display: 'flex', gap: '0.5rem' }}>
                 {[1,2,3,4,5].map(star => (
-                  <button key={star}
-                    onClick={() => { if (!jaVotou && !salvando) setRating(star); }}
-                    disabled={jaVotou || salvando}
+                  <button key={star} onClick={() => { if (!jaVotou && !salvando) setRating(star); }} disabled={jaVotou || salvando}
                     style={{ background: 'transparent', border: 'none', padding: 0, cursor: jaVotou ? 'default' : 'pointer', fontSize: '1.25rem', color: star <= rating ? '#54ff00' : 'rgba(255,255,255,0.2)', opacity: salvando ? 0.5 : 1, transition: 'color 0.2s ease' }}>
                     {star <= rating ? '★' : '☆'}
                   </button>
@@ -599,7 +485,6 @@ const Grade = () => {
   }, {});
 
   const horarios = Object.keys(groupedSessions).sort();
-
   const handleToggle = (id) => setOpenCardId(prev => prev === id ? null : id);
 
   const getDeviceId = () => {
@@ -619,21 +504,17 @@ const Grade = () => {
         {(expanded ? horarios : horarios.slice(0, 5)).map(horario => {
           const sessions = groupedSessions[horario];
           const isMultiple = sessions.length >= 2;
-
           return (
             <div key={horario} style={{ marginBottom: '2rem', overflowX: 'visible', overflowY: 'visible' }}>
               <h3 style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', padding: '0 1.5rem', marginBottom: '0.75rem' }}>
                 {horario}
               </h3>
-
               <div style={isMultiple ? {
                 display: 'flex', alignItems: 'flex-start',
                 overflowX: 'auto', overflowY: 'visible',
-                scrollSnapType: 'x proximity',
-                scrollBehavior: 'smooth',
+                scrollSnapType: 'x proximity', scrollBehavior: 'smooth',
                 WebkitOverflowScrolling: 'touch',
-                gap: '1rem',
-                padding: '0 1.5rem 1rem',
+                gap: '1rem', padding: '0 1.5rem 1rem',
                 scrollbarWidth: 'none', msOverflowStyle: 'none',
               } : {
                 display: 'block', padding: '0 1.5rem', width: '100%',
@@ -666,7 +547,7 @@ const Grade = () => {
 
       {horarios.length > 5 && (
         <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-          <button 
+          <button
             onClick={() => {
               if (expanded) {
                 document.getElementById('grade')?.scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -674,9 +555,8 @@ const Grade = () => {
               } else {
                 setExpanded(true);
               }
-            }} 
-            style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, color: '#54ff00', background: 'transparent', border: '1px solid rgba(84,255,0,0.3)', borderRadius: '9999px', padding: '0.6rem 1.5rem', cursor: 'pointer' }}
-          >
+            }}
+            style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, color: '#54ff00', background: 'transparent', border: '1px solid rgba(84,255,0,0.3)', borderRadius: '9999px', padding: '0.6rem 1.5rem', cursor: 'pointer' }}>
             {expanded ? 'Ver menos ↑' : 'Ver programação completa →'}
           </button>
         </div>

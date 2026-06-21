@@ -4,34 +4,50 @@ const STANDS = [
   {
     id: 2,
     titulo: 'Diagnóstico Comercial da sua EJ',
-    empresa: 'Omotenashi',
-    descricao: 'Faça um diagnóstico comercial da sua EJ em 10 minutos!.',
-    contato: '(61) 99999-0001',
-    horario: '14:00 – 17:00',
+    empresa: 'Omotenashi Consultoria',
+    descricao: 'Faça um diagnóstico comercial da sua EJ!',
+    contato: '(61) 99932-0703',
+    horario: '',
   },
   {
     id: 1,
-    titulo: 'Otimizando Processos com IA',
+    titulo: 'Otimize seus Processos com IA',
     empresa: 'BMAI',
     descricao: 'Demonstração ao vivo de ferramentas de IA aplicadas à EJs.',
-    contato: '(61) 99999-0002',
-    horario: '14:00 – 17:00',
+    contato: '(61) 98153-1419',
+    horario: '',
   },
   {
     id: 4,
-    titulo: 'Analise seu Currículo Aqui',
-    empresa: 'Gupy',
-    descricao: 'Consultores especializados analisam seu currículo e dão feedback na hora.',
-    contato: '(61) 99999-0003',
-    horario: '14:00 – 17:00',
+    titulo: 'Transforme seu Currículo em Oportunidades',
+    empresa: 'Multi Carreira',
+    descricao: 'Descubra como demonstrar seu potencial para empresas e aumentar suas chances de sucesso no mercado de trabalho.',
+    contato: '(61) 98237-3734',
+    horario: '',
+  },
+   {
+    id: 6,
+    titulo: 'Conheça uma das maiores consultorias do país!',
+    empresa: 'EloGroup',
+    descricao: 'Converse com quem já foi de EJ e hoje é especialista em consultoria na EloGroup.',
+    contato: '',
+    horario: '',
   },
   {
     id: 3,
-    titulo: 'Árvore do Sonhos',
-    empresa: 'Sebrae',
-    descricao: 'Ativação interativa sobre carreira e futuro para estudantes universitários.',
-    contato: '(61) 99999-0004',
-    horario: '14:00 – 17:00',
+    titulo: 'Conheca o Peso do Protagonismo Estudantil',
+    empresa: 'SEBRAE',
+    descricao: 'Ativação interativa sobre sonhos e empreendedorismo estudantil.',
+    contato: '',
+    horario: '',
+  },
+  {
+    id: 5,
+    titulo: 'Conheca o Sistema Operacional NEXUS',
+    empresa: 'DataSynq',
+    descricao: 'Sistema operacional que integra CRM, gestão e inteligência de dados.',
+    contato: '(61) 98237-3734',
+    horario: '',
   },
 ];
 
@@ -121,15 +137,7 @@ const StandCard = ({ stand, index, isOpen, onToggle }) => {
           {stand.titulo}
         </h4>
 
-        <p style={{
-          fontFamily: '"Noir Pro", sans-serif',
-          fontWeight: 400,
-          color: 'rgba(255,255,255,0.50)',
-          fontSize: '0.8rem',
-          margin: 0
-        }}>
-          {stand.empresa}
-        </p>
+
 
         <div style={{
           borderTop: '1px solid rgba(255,255,255,0.07)',
@@ -147,7 +155,7 @@ const StandCard = ({ stand, index, isOpen, onToggle }) => {
             color: 'rgba(255,255,255,0.35)',
             fontSize: '0.75rem'
           }}>
-            🕐 {stand.horario}
+            {stand.empresa && <span> {stand.empresa}</span>}
           </span>
 
           <button 
@@ -185,28 +193,28 @@ const StandCard = ({ stand, index, isOpen, onToggle }) => {
             {stand.descricao}
           </p>
 
-          <p style={{
-            fontFamily: '"Noir Pro", sans-serif',
-            fontWeight: 400,
-            color: 'rgba(255,255,255,0.35)',
-            fontSize: '0.75rem',
-            marginTop: '0.75rem',
-            marginBottom: '0.2rem'
-          }}>
-            Entre em contato:
-          </p>
-          <a 
-            href={`tel:${stand.contato.replace(/\D/g, '')}`} 
-            style={{
-              fontFamily: '"Noir Pro", sans-serif',
-              fontWeight: 700,
-              color: '#9b6fc4',
-              fontSize: '0.95rem',
-              textDecoration: 'none'
-            }}
-          >
-            {stand.contato}
-          </a>
+          {stand.contato && (
+            <div style={{ marginTop: '0.75rem' }}>
+              <p style={{
+                fontFamily: '"Noir Pro", sans-serif',
+                fontWeight: 400,
+                color: 'rgba(255,255,255,0.35)',
+                fontSize: '0.75rem',
+                marginBottom: '0.25rem',
+              }}>
+                Entre em contato:
+              </p>
+              <a href={`tel:${stand.contato}`} style={{
+                fontFamily: '"Noir Pro", sans-serif',
+                fontWeight: 700,
+                color: '#9b6fc4',
+                fontSize: '0.95rem',
+                textDecoration: 'none',
+              }}>
+                {stand.contato}
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -241,7 +249,7 @@ const Stands = () => {
         marginTop: '-1.5rem',
         marginBottom: '2rem'
       }}>
-        14:00 – 17:00 • Área de Exposição
+        15:20 – 16:20 • Corredor de Stands
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '0 1.5rem' }}>

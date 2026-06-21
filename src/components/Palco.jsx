@@ -3,69 +3,58 @@ import React, { useEffect, useRef, useState } from 'react';
 const CASES = [
   {
     id: 1,
-    grupo: 'Grupo Level Up',
+    grupo: '- Grupo Level Up',
     subtitulo: 'Crescimento comercial exponencial!',
-    descricao: 'Cases de empresas juniores que alcançaram resultados extraordinários em vendas e expansão de mercado durante o último ciclo.',
+    descricao: 'Cases de empresas juniores demonstrando como irão alcancar seu objetivo anual de crescimento comercial e expansão para novos mercados.',
     cor: '#54ff00',
-    premio: '3 mentorias personalizadas comercial + acesso à plataforma de aulas',
+    premio: 'Mentorias comerciais personalizadas + acesso à plataforma de aulas',
     ejs: [
-      { nome: 'ESTAT', link: '#' },
-      { nome: 'AD&M', link: '#' },
-      { nome: 'Grupo Gestão', link: '#' },
+      { nome: 'Facto', link: '#' },
+      { nome: 'Concreta', link: '#' },
+      { nome: 'XXXX', link: '#' },
     ],
-  },
-  {
-    id: 2,
-    grupo: 'Stoic Capital',
-    subtitulo: 'tomada de decisão financeira.',
-    descricao: 'Case técnico sobre financeiro e investimentos, destacando estratégias de gestão financeira, captação de recursos e investimentos.',
-    cor: '#f6538c',
-    premio: 'Mentoria presencial na Stoic com principais heads da empresa',
-    ejs: [
-      { nome: 'ESTAT', link: '#' },
-      { nome: 'Grupo Gestão', link: '#' },
-      { nome: 'Advocatta', link: '#' },
-    ],
-  },
-  {
-    id: 3,
-    grupo: 'R2',
-    subtitulo: 'Comunicação e design aplicado ao consumidor final.',
-    descricao: 'Tecnologia e metodologias inovadoras de comunicação para transformar a entrega de valor ao cliente.',
-    cor: '#704595',
-    premio: 'Visita presencial à sede da R2 para aprender sobre comunicação e marketing',
-    ejs: [
-      { nome: 'ESTAT', link: '#' },
-      { nome: 'AD&M', link: '#' },
-      { nome: 'Grupo Gestão', link: '#' },
-    ],
-  },
+  }
 ];
 
 const EMBAIXADORAS = [
   {
     posicao: 1,
-    premio: 'Intensivão sobre IA da BMAI para sua EJ',
+    premio: 'Mentoria personalizada da Stone + Mentoria comercial da Omotenashi',
     icone: '🥇',
     corMedal: '#FFD700',
   },
   {
     posicao: 2,
-    premio: 'Mentoria personalizada com Omotenashi à sua EJ',
+    premio: 'Mentoria personalizada da EloGroup',
     icone: '🥈',
     corMedal: '#C0C0C0',
   },
   {
     posicao: 3,
-    premio: 'Mentoria personalizada com EloGroup à sua EJ',
+    premio: 'Mentoria personalizada da Singular',
     icone: '🥉',
     corMedal: '#CD7F32',
   },
 ];
 
 const CONSELHEIRO = {
-  premio: '2 kits de café da Petricor ☕',
+  premio: 'Treinamento personalizado da Verbalize',
 };
+
+const PREMIOS = [
+  { premio: 'Sistema Operacional NEXUS implementado na EJ', parceiro: 'DataSynq' },
+  { premio: 'Intensivão sobre Uso de IA na EJ', parceiro: 'BMAI' },
+  { premio: 'Mentoria personalizada para a EJ', parceiro: 'Ricco Burger' },
+  { premio: 'Treinamentos personalizados para a EJ', parceiro: 'Atuar' },
+  { premio: 'Mentoria personalizada para a EJ', parceiro: 'IZE' },
+];
+
+const CATEGORIAS = [
+  { nome: 'Quem Cresce não Espera', descricao: 'EJs no Farol verde de faturamento até Junho.', icone: '📈' },
+  { nome: 'Turbulência não Derruba Avião', descricao: 'EJs com 5 meses no Farol vermelho e Farol verde em Junho.', icone: '✈️' },
+  { nome: 'Coragem de ser Ousado', descricao: 'EJs com Farol verde de faturamento até Agosto.', icone: '🎯' },
+  { nome: 'Crescimento Compartilhado', descricao: 'EJs com Farol verde de faturamento colaborativo até Junho.', icone: '🤝' },
+];
 
 const CaseCard = ({ caseData, index }) => {
   const cardRef = useRef(null);
@@ -109,9 +98,12 @@ const CaseCard = ({ caseData, index }) => {
           fontFamily: 'Strelka',
           fontWeight: 800,
           color: 'white',
-          fontSize: 'clamp(1.3rem, 5vw, 1.6rem)',
+          fontSize: 'clamp(1.1rem, 4.5vw, 1.4rem)',
           marginBottom: '0.25rem',
-          marginTop: 0
+          marginTop: 0,
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
         }}>
           Case {caseData.grupo}
         </h3>
@@ -166,7 +158,7 @@ const CaseCard = ({ caseData, index }) => {
             fontSize: '0.72rem',
             marginBottom: '0.75rem'
           }}>
-            EJs participantes
+            EJs finalistas
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -310,6 +302,8 @@ const EmbaixadoraCard = ({ embaixadora }) => {
 };
 
 const Palco = () => {
+  const [premioBlocoAberto, setPremioBlocoAberto] = useState(false);
+
   return (
     <section id="palco" style={{
       background: 'linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 100%)',
@@ -330,23 +324,181 @@ const Palco = () => {
         marginBottom: '0.5rem',
         marginTop: 0
       }}>
-        Palco
+        Palco SBJr.
       </h2>
       
       <p style={{
         fontFamily: '"Noir Pro", sans-serif',
+        fontStyle: 'italic',
         fontWeight: 400,
         color: 'rgba(255,255,255,0.40)',
         fontSize: '0.85rem',
         padding: '0 1.5rem',
         marginTop: 0,
-        marginBottom: '3rem'
+        marginBottom: '2rem'
       }}>
-        Cases em competição
+        Prepare-se para Energia Máxima!
       </p>
 
-      {/* BLOCO 1 - CASES */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: '0 1.5rem' }}>
+      <div style={{
+        margin: '0 1.5rem 2rem',
+        height: '1px',
+        background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent)',
+      }} />
+
+      <h2 style={{
+        fontFamily: 'Strelka',
+        fontWeight: 800,
+        color: 'white',
+        fontSize: 'clamp(1.3rem, 5vw, 1.8rem)',
+        padding: '0 1.5rem',
+        marginTop: 0,
+        marginBottom: '0.4rem'
+      }}>
+        Categorias
+      </h2>
+      <p style={{
+        fontFamily: '"Noir Pro", sans-serif',
+        fontStyle: 'italic',
+        fontWeight: 400,
+        color: 'rgba(255,255,255,0.40)',
+        fontSize: '0.82rem',
+        padding: '0 1.5rem',
+        marginTop: 0,
+        marginBottom: '1.25rem'
+      }}>
+        Quem sobe, concorre a prêmios exclusivos!
+      </p>
+
+      <div style={{
+        display: 'flex',
+        overflowX: 'auto',
+        scrollSnapType: 'x proximity',
+        WebkitOverflowScrolling: 'touch',
+        gap: '1rem',
+        padding: '0 1.5rem 1rem 1.5rem',
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none'
+      }}>
+        <style dangerouslySetInnerHTML={{__html: `#palco div::-webkit-scrollbar { display: none; }`}} />
+        {CATEGORIAS.map((cat, i) => (
+          <div key={i} style={{
+            width: 'calc(75vw - 3rem)',
+            maxWidth: '280px',
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(112,69,149,0.25)',
+            borderTop: '2px solid #704595',
+            borderRadius: '16px',
+            padding: '1.25rem',
+            scrollSnapAlign: 'start',
+            flexShrink: 0
+          }}>
+            <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{cat.icone}</div>
+            <div style={{
+              fontFamily: 'Strelka',
+              fontWeight: 800,
+              color: 'white',
+              fontSize: '0.95rem',
+              marginBottom: '0.5rem'
+            }}>
+              {cat.nome}
+            </div>
+            <div style={{
+              fontFamily: '"Noir Pro", sans-serif',
+              fontWeight: 400,
+              color: 'rgba(255,255,255,0.50)',
+              fontSize: '0.8rem',
+              lineHeight: 1.4
+            }}>
+              {cat.descricao}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div
+        onClick={() => setPremioBlocoAberto(!premioBlocoAberto)}
+        style={{
+          margin: '2rem 1.5rem 0',
+          background: 'rgba(255,255,255,0.03)',
+          border: '1px solid rgba(255,255,255,0.07)',
+          borderRadius: '16px',
+          padding: '1rem 1.25rem',
+          cursor: 'pointer'
+        }}
+      >
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <span style={{
+            fontFamily: '"Noir Pro", sans-serif',
+            fontWeight: 700,
+            color: 'white',
+            fontSize: '0.88rem'
+          }}>
+            🏆 Prêmios para as EJs do Palco
+          </span>
+          <span style={{
+            fontFamily: '"Noir Pro", sans-serif',
+            color: 'rgba(255,255,255,0.35)',
+            fontSize: '0.8rem',
+            transition: 'transform 0.2s ease',
+            transform: premioBlocoAberto ? 'rotate(180deg)' : 'rotate(0deg)',
+            display: 'inline-block',
+            flexShrink: 0,
+            marginLeft: '0.5rem'
+          }}>
+            ↓
+          </span>
+        </div>
+
+        <div style={{
+          maxHeight: premioBlocoAberto ? '600px' : '0',
+          opacity: premioBlocoAberto ? 1 : 0,
+          overflow: 'hidden',
+          transition: 'max-height 0.3s ease, opacity 0.3s ease'
+        }}>
+          <div style={{
+            marginTop: '0.75rem',
+            borderTop: '1px solid rgba(255,255,255,0.07)',
+            paddingTop: '0.75rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.6rem'
+          }}>
+            {PREMIOS.map((item, idx) => (
+              <div key={idx} style={{ display: 'flex', flexDirection: 'column' }}>
+                <span style={{
+                  fontFamily: 'Strelka',
+                  fontWeight: 800,
+                  color: 'white',
+                  fontSize: '0.85rem'
+                }}>
+                  {item.premio}
+                </span>
+                <span style={{
+                  fontFamily: '"Noir Pro", sans-serif',
+                  fontWeight: 400,
+                  color: 'rgba(255,255,255,0.35)',
+                  fontSize: '0.75rem'
+                }}>
+                  por {item.parceiro}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div style={{
+        marginTop: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1.5rem',
+        padding: '0 1.5rem'
+      }}>
         {CASES.map((c, index) => (
           <CaseCard key={c.id} caseData={c} index={index} />
         ))}
@@ -381,7 +533,7 @@ const Palco = () => {
         marginTop: 0,
         marginBottom: '2rem'
       }}>
-        Quem será a grande vencedora?
+        As com mais espírito SBJr. !
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '0 1.5rem' }}>
@@ -401,12 +553,13 @@ const Palco = () => {
         fontFamily: 'Strelka',
         fontWeight: 800,
         color: 'white',
-        fontSize: 'clamp(1.4rem, 5vw, 2rem)',
+        fontSize: 'clamp(1.2rem, 5vw, 2rem)',
+        lineHeight: 1.1 ,
         padding: '0 1.5rem',
         marginTop: '2.5rem',
         marginBottom: '0.5rem'
       }}>
-        Conselheiro Embaixador
+        Conselheiros Destaque
       </h2>
       
       <p style={{
@@ -419,7 +572,7 @@ const Palco = () => {
         marginTop: 0,
         marginBottom: '2rem'
       }}>
-        O grande destaque será revelado no evento
+        Eles escolheram crescer!
       </p>
 
       <div style={{ padding: '0 1.5rem' }}>
@@ -464,7 +617,7 @@ const Palco = () => {
             fontSize: '0.7rem',
             marginBottom: '1.25rem'
           }}>
-            Conselheiro Embaixador
+            Conselheiros Destaque 
           </div>
 
           <div style={{
