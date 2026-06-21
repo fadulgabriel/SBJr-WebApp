@@ -15,7 +15,6 @@ import logoCriamov from '../assets/parceiros/criamov_logo.png';
 import logoEloGroup from '../assets/parceiros/elo_group.png';
 import logoMonster from '../assets/parceiros/monster.png';
 import logoMultiCarreiras from '../assets/parceiros/multicarreira.png';
-import logoMilkMoo from '../assets/parceiros/milkymoo_logo.png';
 import logoRiccoBurger from '../assets/parceiros/ricco_logo.png';
 import logoKaizen from '../assets/parceiros/kaizen_logo.png';
 import logoStone from '../assets/parceiros/stone.png';
@@ -36,7 +35,6 @@ const PARCEIROS = [
   { id: 12, nome: 'Atuar',            logo: logoSBJr },
   { id: 13, nome: 'Multi Carreiras',  logo: logoMultiCarreiras },
   { id: 14, nome: 'Verbalize',        logo: logoSBJr },
-  { id: 15, nome: 'MilkMoo',          logo: logoMilkMoo },
   { id: 16, nome: 'Ricco Burger',     logo: logoRiccoBurger },
   { id: 17, nome: 'Kaizen',           logo: logoKaizen },
   { id: 18, nome: 'IZE',              logo: logoSBJr },
