@@ -4,7 +4,7 @@ import el8 from '../assets/elementos/el8.png';
 import el1 from '../assets/elementos/el1.png';
 
 import logoSingular from '../assets/parceiros/singular_logo.png';
-import logoOmotenashi from '../assets/parceiros/omotenashi_logo.png';
+import logoOmotenashi from '../assets/parceiros/Omotenashi_logo.png';
 import logoBMAI from '../assets/parceiros/bmai.png';
 import logoSebrae from '../assets/parceiros/sebrae_logo.png';
 import logoFanta from '../assets/parceiros/fanta_logo.png';
