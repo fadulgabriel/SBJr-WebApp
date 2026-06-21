@@ -28,10 +28,10 @@ const QUIZ_CONFIG = {
       id: 3,
       texto: "Como você se vê no mercado daqui a 1 ano?",
       opcoes: [
-        { texto: "Quero subir de cargo e liderar mais dentro da EJ", perfil: "lideranca", peso: 1 },
-        { texto: "Quero usar a EJ para entrar forte no mercado de trabalho", perfil: "membro", peso: 1 },
-        { texto: "Quero empreender ou criar algo próprio", perfil: "lideranca", peso: 1 },
-        { texto: "Ainda estou descobrindo meu caminho", perfil: "trainee", peso: 1 },
+        { texto: "Quero subir de cargo e liderar mais dentro da EJ", perfil: "lideranca", peso: 0 },
+        { texto: "Quero usar a EJ para entrar forte no mercado de trabalho", perfil: "membro", peso: 0 },
+        { texto: "Quero empreender ou criar algo próprio", perfil: "lideranca", peso: 0 },
+        { texto: "Ainda estou descobrindo meu caminho", perfil: "trainee", peso: 0 },
       ]
     },
     {
@@ -39,7 +39,7 @@ const QUIZ_CONFIG = {
       texto: "O que você sente que mais trava o crescimento da EJ atualmente?",
       opcoes: [
         { texto: "Falta de maturidade do time para prospectar e vender de forma agressiva.", trilha: "vendas", peso: 2 },
-        { texto: "Portfólio defasado, que entrega pouco valor real ao cliente.", trilha: "produto", peso: 2 },
+        { texto: "Portfólio defasado que entrega pouco valor real ao cliente.", trilha: "produto", peso: 2 },
         { texto: "A EJ funciona no improviso, sem fluxos claros, e cada pessoa faz do seu jeito.", trilha: "processos", peso: 2 },
         { texto: "Falta de alinhamento cultural, membros desmotivados e lideranças despreparadas.", trilha: "gente", peso: 2 },
       ]
@@ -63,7 +63,7 @@ const QUIZ_CONFIG = {
     trainee_gente:     "Conector de Times",
     membro_vendas:     "Closer em Ascensão",
     membro_produto:    "Especialista em Entregas",
-    membro_processos:  "Executor Estratégico",
+    membro_processos:  "Organizador de Eficiência",
     membro_gente:      "Agente de Cultura",
     lideranca_vendas:  "Arquiteto Comercial",
     lideranca_produto: "Visionário de Produto",
@@ -395,6 +395,16 @@ const Quiz = ({ onClose }) => {
       trilha: respostaP5,
       nome_perfil: nomePerfil,
       respostas: answers,
+      p1_resp: answers[0]?.texto || '',
+      p2_resp: answers[1]?.texto || '',
+      p3_resp: answers[2]?.texto || '',
+      p4_resp: answers[3]?.texto || '',
+      p5_resp: answers[4]?.texto || '',
+      paralela1_principal: recomendacao.paralela_principal,
+      paralela1_alternativa: recomendacao.paralela_alternativa,
+      paralela2_principal: recomendacao.paralela2_principal,
+      paralela2_alternativa: recomendacao.paralela2_alternativa,
+      stands_sugeridos: standsTextos.join('\n'),
     });
 
     setLoading(false);
