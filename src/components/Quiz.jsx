@@ -183,6 +183,81 @@ const QUIZ_CONFIG = {
   },
 };
 
+const PAUTAS = {
+  "1.1": { titulo: "IA e o valor da consultoria", sala: "Sala 1", empresa: "EloGroup" },
+  "1.2": { titulo: "Pare de vender o que você sabe fazer", sala: "Sala 2", empresa: "Singular" },
+  "1.3": { titulo: "Quanto cobrar sem ter medo", sala: "Sala 3", empresa: "Stone" },
+  "1.4": { titulo: "Onde está o dinheiro que você não está vendo", sala: "Sala 4", empresa: "Gabriel Fiuza" },
+  "1.5": { titulo: "Da bagunça à entrega", sala: "Sala 5", empresa: "Bruno Kawano" },
+  "1.6": { titulo: "Quando tudo é urgente", sala: "Sala 6", empresa: "Victoria Puchalski" },
+  "2.1": { titulo: "Como lidar com pessoas desalinhadas", sala: "Sala 1", empresa: "Leonardo Ratto" },
+  "2.2": { titulo: "Sozinho você fatura, em rede você impacta", sala: "Sala 2", empresa: "Cacau" },
+  "2.3": { titulo: "De onde vêm seus clientes", sala: "Sala 3", empresa: "CRIAmov" },
+  "2.4": { titulo: "Workshop: Funil de vendas previsível", sala: "Sala 4", empresa: "Singular" },
+  "2.5": { titulo: "O cliente que volta e indica", sala: "Sala 5", empresa: "Vitor Feijó" },
+  "2.6": { titulo: "Como liderar pessoas em cenários críticos", sala: "Sala 6", empresa: "Inova Duda + Tilda" },
+};
+
+const STANDS_MAP = {
+  1: "Otimize seus Processos com IA · BMAI",
+  2: "Diagnóstico Comercial da sua EJ · Omotenashi Consultoria",
+  3: "Conheça o Peso do Protagonismo Estudantil · SEBRAE",
+  4: "Transforme seu Currículo em Oportunidades · Multi Carreira",
+  5: "Conheça o Sistema Operacional NEXUS · DataSynq",
+  6: "Conheça uma das maiores consultorias do país · EloGroup",
+};
+
+const RECOMENDACOES_MAP = {
+  trainee_vendas_vendas:        { p1: "1.1", p1alt: "1.2", p2: "2.3", p2alt: "2.2" },
+  trainee_vendas_produto:       { p1: "1.1", p1alt: "1.2", p2: "2.2", p2alt: "2.3" },
+  trainee_vendas_processos:     { p1: "1.5", p1alt: "1.4", p2: "2.4", p2alt: "2.5" },
+  trainee_vendas_gente:         { p1: "1.5", p1alt: "1.6", p2: "2.6", p2alt: "2.1" },
+  trainee_produto_vendas:       { p1: "1.1", p1alt: "1.2", p2: "2.2", p2alt: "2.3" },
+  trainee_produto_produto:      { p1: "1.1", p1alt: "1.2", p2: "2.5", p2alt: "2.2" },
+  trainee_produto_processos:    { p1: "1.5", p1alt: "1.4", p2: "2.5", p2alt: "2.2" },
+  trainee_produto_gente:        { p1: "1.5", p1alt: "1.6", p2: "2.6", p2alt: "2.1" },
+  trainee_processos_vendas:     { p1: "1.1", p1alt: "1.3", p2: "2.2", p2alt: "2.4" },
+  trainee_processos_produto:    { p1: "1.1", p1alt: "1.5", p2: "2.2", p2alt: "2.5" },
+  trainee_processos_processos:  { p1: "1.5", p1alt: "1.3", p2: "2.5", p2alt: "2.4" },
+  trainee_processos_gente:      { p1: "1.5", p1alt: "1.6", p2: "2.6", p2alt: "2.1" },
+  trainee_gente_vendas:         { p1: "1.1", p1alt: "1.3", p2: "2.3", p2alt: "2.6" },
+  trainee_gente_produto:        { p1: "1.1", p1alt: "1.5", p2: "2.2", p2alt: "2.5" },
+  trainee_gente_processos:      { p1: "1.5", p1alt: "1.6", p2: "2.4", p2alt: "2.1" },
+  trainee_gente_gente:          { p1: "1.5", p1alt: "1.6", p2: "2.6", p2alt: "2.1" },
+  membro_vendas_vendas:         { p1: "1.1", p1alt: "1.2", p2: "2.3", p2alt: "2.2" },
+  membro_vendas_produto:        { p1: "1.1", p1alt: "1.2", p2: "2.2", p2alt: "2.3" },
+  membro_vendas_processos:      { p1: "1.5", p1alt: "1.4", p2: "2.4", p2alt: "2.5" },
+  membro_vendas_gente:          { p1: "1.5", p1alt: "1.6", p2: "2.6", p2alt: "2.1" },
+  membro_produto_vendas:        { p1: "1.1", p1alt: "1.2", p2: "2.2", p2alt: "2.3" },
+  membro_produto_produto:       { p1: "1.1", p1alt: "1.2", p2: "2.5", p2alt: "2.2" },
+  membro_produto_processos:     { p1: "1.5", p1alt: "1.4", p2: "2.5", p2alt: "2.2" },
+  membro_produto_gente:         { p1: "1.5", p1alt: "1.6", p2: "2.6", p2alt: "2.1" },
+  membro_processos_vendas:      { p1: "1.1", p1alt: "1.3", p2: "2.2", p2alt: "2.4" },
+  membro_processos_produto:     { p1: "1.1", p1alt: "1.5", p2: "2.2", p2alt: "2.5" },
+  membro_processos_processos:   { p1: "1.5", p1alt: "1.3", p2: "2.5", p2alt: "2.4" },
+  membro_processos_gente:       { p1: "1.5", p1alt: "1.6", p2: "2.6", p2alt: "2.1" },
+  membro_gente_vendas:          { p1: "1.1", p1alt: "1.3", p2: "2.3", p2alt: "2.6" },
+  membro_gente_produto:         { p1: "1.1", p1alt: "1.5", p2: "2.2", p2alt: "2.5" },
+  membro_gente_processos:       { p1: "1.5", p1alt: "1.6", p2: "2.4", p2alt: "2.1" },
+  membro_gente_gente:           { p1: "1.5", p1alt: "1.6", p2: "2.6", p2alt: "2.1" },
+  lideranca_vendas_vendas:      { p1: "1.6", p1alt: "1.2", p2: "2.3", p2alt: "2.6" },
+  lideranca_vendas_produto:     { p1: "1.2", p1alt: "1.1", p2: "2.6", p2alt: "2.4" },
+  lideranca_vendas_processos:   { p1: "1.5", p1alt: "1.3", p2: "2.4", p2alt: "2.6" },
+  lideranca_vendas_gente:       { p1: "1.6", p1alt: "1.4", p2: "2.6", p2alt: "2.1" },
+  lideranca_produto_vendas:     { p1: "1.6", p1alt: "1.2", p2: "2.6", p2alt: "2.2" },
+  lideranca_produto_produto:    { p1: "1.2", p1alt: "1.1", p2: "2.6", p2alt: "2.2" },
+  lideranca_produto_processos:  { p1: "1.5", p1alt: "1.3", p2: "2.4", p2alt: "2.6" },
+  lideranca_produto_gente:      { p1: "1.6", p1alt: "1.5", p2: "2.6", p2alt: "2.1" },
+  lideranca_processos_vendas:   { p1: "1.6", p1alt: "1.3", p2: "2.6", p2alt: "2.4" },
+  lideranca_processos_produto:  { p1: "1.2", p1alt: "1.6", p2: "2.6", p2alt: "2.5" },
+  lideranca_processos_processos:{ p1: "1.6", p1alt: "1.5", p2: "2.6", p2alt: "2.5" },
+  lideranca_processos_gente:    { p1: "1.6", p1alt: "1.5", p2: "2.6", p2alt: "2.1" },
+  lideranca_gente_vendas:       { p1: "1.6", p1alt: "1.3", p2: "2.6", p2alt: "2.1" },
+  lideranca_gente_produto:      { p1: "1.2", p1alt: "1.6", p2: "2.6", p2alt: "2.5" },
+  lideranca_gente_processos:    { p1: "1.5", p1alt: "1.6", p2: "2.6", p2alt: "2.1" },
+  lideranca_gente_gente:        { p1: "1.6", p1alt: "1.5", p2: "2.6", p2alt: "2.1" },
+};
+
 const Quiz = ({ onClose }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -231,11 +306,12 @@ const Quiz = ({ onClose }) => {
 
   const calculateResult = async () => {
     setLoading(true);
-    let scores = { 
+
+    let scores = {
       trainee: 0, membro: 0, lideranca: 0,
-      vendas: 0, produto: 0, processos: 0, gente: 0 
+      vendas: 0, produto: 0, processos: 0, gente: 0
     };
-    
+
     Object.keys(answers).forEach(qIndex => {
       const option = answers[qIndex];
       if (option.perfil && scores[option.perfil] !== undefined) {
@@ -247,24 +323,61 @@ const Quiz = ({ onClose }) => {
     });
 
     const perfis = ['trainee', 'membro', 'lideranca'];
-    const winnerPerfil = perfis.reduce((a, b) => 
+    const winnerPerfil = perfis.reduce((a, b) =>
       scores[a] >= scores[b] ? a : b);
 
-    const trilhas = ['vendas', 'produto', 'processos', 'gente'];
-    const winnerTrilha = trilhas.reduce((a, b) => 
-      scores[a] >= scores[b] ? a : b);
+    const respostaP4 = answers[3]?.trilha || 'vendas';
+    const respostaP5 = answers[4]?.trilha || 'vendas';
 
-    const chave = `${winnerPerfil}_${winnerTrilha}`;
-    const nomePerfil = QUIZ_CONFIG.nomesPerfil[chave] || "Sábado Júnior";
-    const recomendacao = QUIZ_CONFIG.recomendacoes[chave] || 
-      QUIZ_CONFIG.recomendacoes.trainee_vendas;
+    const chaveRec = `${winnerPerfil}_${respostaP4}_${respostaP5}`;
+    const chaveNome = `${winnerPerfil}_${respostaP5}`;
+
+    const rec = RECOMENDACOES_MAP[chaveRec]
+      || RECOMENDACOES_MAP[`${winnerPerfil}_vendas_vendas`];
+
+    const nomePerfil = QUIZ_CONFIG.nomesPerfil[chaveNome]
+      || QUIZ_CONFIG.nomesPerfil[`${winnerPerfil}_vendas`]
+      || 'Sábado Júnior';
+
+    const standsPerfilMap = {
+      trainee:   [4, 3],
+      membro:    [4],
+      lideranca: [6, 3],
+    };
+    const standsTrilhaMap = {
+      vendas:    [2, 1],
+      produto:   [6, 1],
+      processos: [5, 2],
+      gente:     [3, 6, 4],
+    };
+
+    const standsIds = [
+      ...new Set([
+        ...(standsPerfilMap[winnerPerfil] || []),
+        ...(standsTrilhaMap[respostaP5] || []),
+      ])
+    ].slice(0, 4);
+
+    const standsTextos = standsIds
+      .map(id => STANDS_MAP[id])
+      .filter(Boolean);
+
+    const recomendacao = {
+      magna_abertura: "O Mercado 2026 Não te Espera! · 09:45",
+      paralela_principal: `${PAUTAS[rec.p1]?.titulo}, ${PAUTAS[rec.p1]?.empresa} · ${PAUTAS[rec.p1]?.sala} · 10:50`,
+      paralela_alternativa: `${PAUTAS[rec.p1alt]?.titulo}, ${PAUTAS[rec.p1alt]?.empresa} · ${PAUTAS[rec.p1alt]?.sala} · 10:50`,
+      magna_central: "Cresça ou Fique para Trás · 16:30",
+      paralela2_principal: `${PAUTAS[rec.p2]?.titulo}, ${PAUTAS[rec.p2]?.empresa} · ${PAUTAS[rec.p2]?.sala} · 14:30`,
+      paralela2_alternativa: `${PAUTAS[rec.p2alt]?.titulo}, ${PAUTAS[rec.p2alt]?.empresa} · ${PAUTAS[rec.p2alt]?.sala} · 14:30`,
+      stands: standsTextos,
+    };
 
     const finalResult = {
       perfil: winnerPerfil,
-      trilha: winnerTrilha,
+      trilha: respostaP5,
       nomePerfil,
       recomendacao,
-      data: new Date()
+      data: new Date(),
     };
 
     setResult(finalResult);
@@ -279,11 +392,11 @@ const Quiz = ({ onClose }) => {
     await supabase.from('quiz_results').insert({
       device_id: deviceId,
       perfil: winnerPerfil,
-      trilha: winnerTrilha,
+      trilha: respostaP5,
       nome_perfil: nomePerfil,
-      respostas: answers
+      respostas: answers,
     });
-    
+
     setLoading(false);
   };
 
@@ -314,26 +427,26 @@ const Quiz = ({ onClose }) => {
           <h3 style={{ fontFamily: 'Strelka', color: 'white', fontSize: '1.25rem', marginBottom: '1rem' }}>Sua trilha no SBJr.</h3>
           
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {/* 09:30 */}
+            {/* 09:45 */}
             <div style={{ marginBottom: '1.5rem' }}>
-              <div style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>09:30</div>
-              <div style={{ background: 'rgba(252,61,13,0.10)', border: '1px solid rgba(252,61,13,0.30)', borderRadius: '14px', padding: '1rem 1.25rem', fontFamily: '"Noir Pro", sans-serif', fontSize: '0.85rem', color: 'white' }}>
+              <div style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>09:45</div>
+              <div style={{ background: 'rgba(112,69,149,0.10)', border: '1px solid rgba(112,69,149,0.30)', borderRadius: '14px', padding: '1rem 1.25rem', fontFamily: '"Noir Pro", sans-serif', fontSize: '0.85rem', color: 'white' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                  <span style={{ background: 'rgba(252,61,13,0.15)', color: '#fc3d0d', fontSize: '0.65rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', padding: '2px 8px', borderRadius: '9999px', marginRight: '0.5rem', whiteSpace: 'nowrap' }}>MAGNA</span>
+                  <span style={{ background: 'rgba(112,69,149,0.15)', color: '#704595', fontSize: '0.65rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', padding: '2px 8px', borderRadius: '9999px', marginRight: '0.5rem', whiteSpace: 'nowrap' }}>MAGNA</span>
                   <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.magna_abertura.replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
                 </div>
               </div>
             </div>
 
-            {/* 10:55 */}
+            {/* 10:50 */}
             <div style={{ marginBottom: '1.5rem' }}>
-              <div style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>10:55</div>
+              <div style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>10:50</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 <div style={{ background: 'rgba(84,255,0,0.1)', border: '1px solid rgba(84,255,0,0.25)', borderRadius: '12px', padding: '0.75rem 1rem', fontFamily: '"Noir Pro", sans-serif', fontSize: '0.85rem', color: 'white' }}>
                   <div style={{ fontSize: '0.62rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', color: '#54ff00', letterSpacing: '0.08em', marginBottom: '0.3rem' }}>RECOMENDADA</div>
                   <div style={{ display: 'flex', alignItems: 'flex-start' }}>
                     <span style={{ background: 'rgba(246,83,140,0.15)', color: '#f6538c', fontSize: '0.65rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', padding: '2px 8px', borderRadius: '9999px', marginRight: '0.5rem', whiteSpace: 'nowrap' }}>PARALELA</span>
-                    <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.paralela_principal.replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
+                    <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.paralela_principal.replace(/\s*·\s*Sala\s*\d+\s*·\s*\d{2}:\d{2}$/, '').replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
                   </div>
                 </div>
                 
@@ -341,21 +454,21 @@ const Quiz = ({ onClose }) => {
                   <div style={{ fontSize: '0.62rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', color: 'rgba(255,255,255,0.30)', letterSpacing: '0.08em', marginBottom: '0.3rem' }}>ALTERNATIVA</div>
                   <div style={{ display: 'flex', alignItems: 'flex-start' }}>
                     <span style={{ background: 'rgba(246,83,140,0.15)', color: '#f6538c', fontSize: '0.65rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', padding: '2px 8px', borderRadius: '9999px', marginRight: '0.5rem', whiteSpace: 'nowrap' }}>PARALELA</span>
-                    <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.paralela_alternativa.replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
+                    <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.paralela_alternativa.replace(/\s*·\s*Sala\s*\d+\s*·\s*\d{2}:\d{2}$/, '').replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 14:55 */}
+            {/* 14:30 */}
             <div style={{ marginBottom: '1.5rem' }}>
-              <div style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>14:55</div>
+              <div style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>14:30</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 <div style={{ background: 'rgba(84,255,0,0.1)', border: '1px solid rgba(84,255,0,0.25)', borderRadius: '12px', padding: '0.75rem 1rem', fontFamily: '"Noir Pro", sans-serif', fontSize: '0.85rem', color: 'white' }}>
                   <div style={{ fontSize: '0.62rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', color: '#54ff00', letterSpacing: '0.08em', marginBottom: '0.3rem' }}>RECOMENDADA</div>
                   <div style={{ display: 'flex', alignItems: 'flex-start' }}>
                     <span style={{ background: 'rgba(246,83,140,0.15)', color: '#f6538c', fontSize: '0.65rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', padding: '2px 8px', borderRadius: '9999px', marginRight: '0.5rem', whiteSpace: 'nowrap' }}>PARALELA</span>
-                    <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.paralela2_principal.replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
+                    <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.paralela2_principal.replace(/\s*·\s*Sala\s*\d+\s*·\s*\d{2}:\d{2}$/, '').replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
                   </div>
                 </div>
                 
@@ -363,18 +476,18 @@ const Quiz = ({ onClose }) => {
                   <div style={{ fontSize: '0.62rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', color: 'rgba(255,255,255,0.30)', letterSpacing: '0.08em', marginBottom: '0.3rem' }}>ALTERNATIVA</div>
                   <div style={{ display: 'flex', alignItems: 'flex-start' }}>
                     <span style={{ background: 'rgba(246,83,140,0.15)', color: '#f6538c', fontSize: '0.65rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', padding: '2px 8px', borderRadius: '9999px', marginRight: '0.5rem', whiteSpace: 'nowrap' }}>PARALELA</span>
-                    <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.paralela2_alternativa.replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
+                    <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.paralela2_alternativa.replace(/\s*·\s*Sala\s*\d+\s*·\s*\d{2}:\d{2}$/, '').replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 16:50 */}
+            {/* 16:30 */}
             <div style={{ marginBottom: '1.5rem' }}>
-              <div style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>16:50</div>
-              <div style={{ background: 'rgba(252,61,13,0.10)', border: '1px solid rgba(252,61,13,0.30)', borderRadius: '14px', padding: '1rem 1.25rem', fontFamily: '"Noir Pro", sans-serif', fontSize: '0.85rem', color: 'white' }}>
+              <div style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400, color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', marginBottom: '0.75rem' }}>16:30</div>
+              <div style={{ background: 'rgba(112,69,149,0.10)', border: '1px solid rgba(112,69,149,0.30)', borderRadius: '14px', padding: '1rem 1.25rem', fontFamily: '"Noir Pro", sans-serif', fontSize: '0.85rem', color: 'white' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                  <span style={{ background: 'rgba(252,61,13,0.15)', color: '#fc3d0d', fontSize: '0.65rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', padding: '2px 8px', borderRadius: '9999px', marginRight: '0.5rem', whiteSpace: 'nowrap' }}>MAGNA</span>
+                  <span style={{ background: 'rgba(112,69,149,0.15)', color: '#704595', fontSize: '0.65rem', fontFamily: '"Noir Pro", sans-serif', fontWeight: 700, textTransform: 'uppercase', padding: '2px 8px', borderRadius: '9999px', marginRight: '0.5rem', whiteSpace: 'nowrap' }}>MAGNA</span>
                   <span style={{ fontFamily: '"Noir Pro", sans-serif', fontWeight: 400 }}>{result.recomendacao.magna_central.replace(/\s*·\s*\d{2}:\d{2}$/, '')}</span>
                 </div>
               </div>
@@ -392,7 +505,7 @@ const Quiz = ({ onClose }) => {
                 margin: 0,
                 whiteSpace: 'pre-line'
               }}>
-                {result.recomendacao.stands.join('\n')}
+                {result.recomendacao.stands.map(s => s.split(' · ')[1] || s).join('\n')}
               </p>
             </div>
           </div>

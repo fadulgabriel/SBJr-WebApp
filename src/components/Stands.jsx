@@ -223,13 +223,15 @@ const StandCard = ({ stand, index, isOpen, onToggle }) => {
 
 const Stands = () => {
   const [openCardId, setOpenCardId] = useState(null);
+  const [expanded, setExpanded] = useState(false);
+  const standsRef = useRef(null);
 
   const handleToggle = (id) => {
     setOpenCardId(prev => prev === id ? null : id);
   };
 
   return (
-    <section id="stands" style={{ background: '#111111', padding: '3rem 0 4rem 0' }}>
+    <section id="stands" ref={standsRef} style={{ background: '#111111', padding: '3rem 0 4rem 0' }}>
       <h2 style={{
         fontFamily: 'Strelka',
         fontWeight: 800,
@@ -252,17 +254,59 @@ const Stands = () => {
         15:20 – 16:20 • Corredor de Stands
       </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '0 1.5rem' }}>
-        {STANDS.map((stand, index) => (
-          <StandCard 
-            key={stand.id} 
-            stand={stand} 
-            index={index} 
-            isOpen={openCardId === stand.id}
-            onToggle={() => handleToggle(stand.id)}
-          />
-        ))}
+      <div style={{ position: 'relative' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '0 1.5rem' }}>
+          {(expanded ? STANDS : STANDS.slice(0, 3)).map((stand, index) => (
+            <StandCard 
+              key={stand.id} 
+              stand={stand} 
+              index={index} 
+              isOpen={openCardId === stand.id}
+              onToggle={() => handleToggle(stand.id)}
+            />
+          ))}
+        </div>
+
+        {!expanded && STANDS.length > 3 && (
+          <div style={{
+            position: 'absolute',
+            bottom: 0, left: 0, right: 0,
+            height: '80px',
+            background: 'linear-gradient(to bottom, transparent, #111111)',
+            pointerEvents: 'none',
+          }} />
+        )}
       </div>
+
+      {STANDS.length > 3 && (
+        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+          <button
+            onClick={() => {
+              if (expanded) {
+                standsRef.current?.scrollIntoView({ 
+                  behavior: 'smooth', 
+                  block: 'start' 
+                });
+                setTimeout(() => setExpanded(false), 400);
+              } else {
+                setExpanded(true);
+              }
+            }}
+            style={{
+              fontFamily: '"Noir Pro", sans-serif',
+              fontWeight: 700,
+              color: '#54ff00',
+              background: 'transparent',
+              border: '1px solid rgba(84,255,0,0.3)',
+              borderRadius: '9999px',
+              padding: '0.6rem 1.5rem',
+              cursor: 'pointer',
+            }}
+          >
+            {expanded ? 'Ver menos ↑' : 'Ver mais stands →'}
+          </button>
+        </div>
+      )}
     </section>
   );
 };

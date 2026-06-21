@@ -17,7 +17,7 @@ const SESSIONS = [
   {
     id: 1,
     tipo: 'Magna',
-    pauta: 'O Mercado não te espera!',
+    pauta: 'O Mercado 2026 Não te Espera!',
     descricao: 'Uma visão direta e sem filtros sobre o que o mercado exige das empresas juniores hoje. O que mudou, o que não vai voltar e o que você precisa fazer agora.',
     autor: '', empresa: 'Kaizen',
     sala: 'Palco Principal',
@@ -26,7 +26,7 @@ const SESSIONS = [
 
     // ── ABERTURA ──
   {
-    id: 20,
+    id: 21,
     tipo: 'Direto',
     pauta: 'Abertura com os MCs',
     descricao: 'Os MCs abrem o evento, apresentam o que vem por aí e passam uma mensagem rápida sobre o dia. O aquecimento antes da largada.',
@@ -52,7 +52,7 @@ const SESSIONS = [
     id: 4, codigo: '1.2',
     tipo: 'Paralela',
     pauta: 'Pare de vender o que você sabe fazer',
-    descricao: 'Como imergir na realidade do seu cliente para entender os problemas que ele precisa ter resolvidos e alinhar o conhecimento técnico nativo da sua EJ com um serviço verdadeiramente atrativo para o mercado.',
+    descricao: 'Como imergir na realidade do seu cliente para entender os problemas que ele precisa resolver e alinhar o conhecimento técnico nativo da sua EJ com um serviço verdadeiramente atrativo para o mercado.',
     autor: '', empresa: 'Singular',
     sala: 'Sala 2',
     horario: '10:50', horarioFim: '',
@@ -70,7 +70,7 @@ const SESSIONS = [
     id: 6, codigo: '1.4',
     tipo: 'Paralela',
     pauta: 'Onde está o dinheiro que você não está vendo',
-    descricao: 'Como achar demanda para o que sua EJ já sabe fazer. Como explorar novos nichos que hoje você nem sabe que precisam do seu conhecimento.',
+    descricao: 'Como explorar novos nichos que hoje você nem sabe que precisam do seu conhecimento.',
     autor: '', empresa: 'Gabriel Fiuza',
     sala: 'Sala 4',
     horario: '10:50', horarioFim: '12:00',
@@ -88,7 +88,7 @@ const SESSIONS = [
     id: 8, codigo: '1.6',
     tipo: 'Paralela',
     pauta: 'Quando tudo é urgente',
-    descricao: 'Como uma liderança decide o que atacar primeiro (e o que deixar morrer).',
+    descricao: 'Como uma liderança decide o que atacar primeiro — e o que §deixar morrer de vez',
     autor: '', empresa: 'Victoria Puchalski',
     sala: 'Sala 6',
     horario: '10:50', horarioFim: '12:00',
@@ -258,8 +258,34 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
     setTotalAtual(totalVotos);
   }, [mediaInicial, totalVotos]);
 
+  const podeAvaliar = () => {
+    if (!session.horario) return true;
+    
+    const agora = new Date();
+    const [horas, minutos] = session.horario.split(':').map(Number);
+    
+    const inicioPauta = new Date();
+    inicioPauta.setHours(horas, minutos + 30, 0, 0);
+    
+    return agora >= inicioPauta;
+  };
+
   const handleConfirmRating = async () => {
     if (jaVotou || salvando || rating === 0) return;
+    
+    if (!podeAvaliar()) {
+      alert(`A avaliação só será liberada às ${
+        (() => {
+          const [h, m] = session.horario.split(':').map(Number);
+          const total = h * 60 + m + 30;
+          const hh = Math.floor(total / 60).toString().padStart(2, '0');
+          const mm = (total % 60).toString().padStart(2, '0');
+          return `${hh}:${mm}`;
+        })()
+      }.`);
+      return;
+    }
+
     setSalvando(true);
     const { error } = await supabase
       .from('ratings')
@@ -368,7 +394,7 @@ const SessionCard = ({ session, isMultiple, isOpen, onToggle, mediaInicial, tota
 
         {tipo === 'MAGNA' ? (
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <h4 style={{ textAlign: 'center', fontSize: 'clamp(0.85rem, 3.8vw, 1.2rem)', fontFamily: 'Strelka', fontWeight: 800, color: 'white', lineHeight: 1.2, margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+            <h4 style={{ textAlign: 'center', fontSize: 'clamp(0.75rem, 3.3vw, 1rem)', fontFamily: 'Strelka', fontWeight: 800, color: 'white', lineHeight: 1.2, margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', whiteSpace: 'nowrap' }}>
               {session.pauta}
             </h4>
           </div>
@@ -550,8 +576,13 @@ const Grade = () => {
           <button
             onClick={() => {
               if (expanded) {
-                document.getElementById('grade')?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-                setTimeout(() => setExpanded(false), 300);
+                setExpanded(false);
+                setTimeout(() => {
+                  gradeRef.current?.scrollIntoView({ 
+                  behavior: 'smooth', 
+                  block: 'end' 
+                });
+                }, 50);
               } else {
                 setExpanded(true);
               }

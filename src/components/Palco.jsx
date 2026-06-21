@@ -7,7 +7,7 @@ const CASES = [
     subtitulo: 'Crescimento comercial exponencial!',
     descricao: 'Cases de empresas juniores demonstrando como irão alcancar seu objetivo anual de crescimento comercial e expansão para novos mercados.',
     cor: '#54ff00',
-    premio: 'Mentorias comerciais personalizadas + acesso à plataforma de aulas',
+    premio: 'Mentorias comerciais personalizadas + Acesso à plataforma de aulas',
     ejs: [
       { nome: 'Facto', link: '#' },
       { nome: 'Concreta', link: '#' },
@@ -20,19 +20,19 @@ const EMBAIXADORAS = [
   {
     posicao: 1,
     premio: 'Mentoria personalizada da Stone + Mentoria comercial da Omotenashi',
-    icone: '🥇',
+    icone: '',
     corMedal: '#FFD700',
   },
   {
     posicao: 2,
     premio: 'Mentoria personalizada da EloGroup',
-    icone: '🥈',
+    icone: '',
     corMedal: '#C0C0C0',
   },
   {
     posicao: 3,
     premio: 'Mentoria personalizada da Singular',
-    icone: '🥉',
+    icone: '',
     corMedal: '#CD7F32',
   },
 ];
@@ -324,7 +324,7 @@ const Palco = () => {
         marginBottom: '0.5rem',
         marginTop: 0
       }}>
-        Palco SBJr.
+        Palco SBJr. 26
       </h2>
       
       <p style={{
@@ -383,6 +383,8 @@ const Palco = () => {
         <style dangerouslySetInnerHTML={{__html: `#palco div::-webkit-scrollbar { display: none; }`}} />
         {CATEGORIAS.map((cat, i) => (
           <div key={i} style={{
+            position: 'relative',
+            overflow: 'hidden',
             width: 'calc(75vw - 3rem)',
             maxWidth: '280px',
             background: 'rgba(255,255,255,0.03)',
@@ -393,24 +395,40 @@ const Palco = () => {
             scrollSnapAlign: 'start',
             flexShrink: 0
           }}>
-            <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{cat.icone}</div>
-            <div style={{
-              fontFamily: 'Strelka',
-              fontWeight: 800,
-              color: 'white',
-              fontSize: '0.95rem',
-              marginBottom: '0.5rem'
-            }}>
-              {cat.nome}
-            </div>
-            <div style={{
-              fontFamily: '"Noir Pro", sans-serif',
-              fontWeight: 400,
-              color: 'rgba(255,255,255,0.50)',
-              fontSize: '0.8rem',
-              lineHeight: 1.4
-            }}>
-              {cat.descricao}
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+              style={{ 
+                position: 'absolute',
+                top: '-1rem',
+                left: '-1rem',
+                width: '90px',
+                height: '90px',
+                opacity: 0.15,
+                pointerEvents: 'none',
+                zIndex: 0,
+              }}>
+              <circle cx="50" cy="50" r="50" fill="#704595"/>
+            </svg>
+            
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{
+                fontFamily: 'Strelka',
+                fontWeight: 800,
+                color: 'white',
+                fontSize: '1.1rem',
+                marginTop: '0.5rem',
+                marginBottom: '0.5rem'
+              }}>
+                {cat.nome}
+              </div>
+              <div style={{
+                fontFamily: '"Noir Pro", sans-serif',
+                fontWeight: 400,
+                color: 'rgba(255,255,255,0.50)',
+                fontSize: '0.8rem',
+                lineHeight: 1.4
+              }}>
+                {cat.descricao}
+              </div>
             </div>
           </div>
         ))}
@@ -533,7 +551,7 @@ const Palco = () => {
         marginTop: 0,
         marginBottom: '2rem'
       }}>
-        As com mais espírito SBJr. !
+        As EJs com mais espírito SBJr. 
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '0 1.5rem' }}>
@@ -572,7 +590,7 @@ const Palco = () => {
         marginTop: 0,
         marginBottom: '2rem'
       }}>
-        Eles escolheram crescer!
+        Eles escolheram crescer...
       </p>
 
       <div style={{ padding: '0 1.5rem' }}>
@@ -586,14 +604,24 @@ const Palco = () => {
           alignItems: 'center',
           textAlign: 'center'
         }}>
-          <svg 
-            viewBox="0 0 80 80" 
-            fill="none" 
+          <svg viewBox="0 0 120 80" fill="none" 
             xmlns="http://www.w3.org/2000/svg"
-            style={{ width: '80px', height: '80px', marginBottom: '1.25rem' }}
-          >
-            <circle cx="40" cy="28" r="16" fill="rgba(255,255,255,0.08)"/>
-            <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" fill="rgba(255,255,255,0.08)"/>
+            style={{ width: '100px', height: '70px', marginBottom: '1.25rem' }}>
+            
+            {/* Pessoa da esquerda */}
+            <circle cx="30" cy="24" r="12" fill="rgba(255,255,255,0.2)"/>
+            <path d="M8 72c0-12.15 9.85-22 22-22s22 9.85 22 22" 
+              fill="rgba(255,255,255,0.2)"/>
+
+            {/* Pessoa do centro (ligeiramente maior) */}
+            <circle cx="60" cy="22" r="14" fill="rgba(255,255,255,0.70)"/>
+            <path d="M36 72c0-13.25 10.75-24 24-24s24 10.75 24 24" 
+              fill="rgba(255,255,255,0.8)"/>
+
+            {/* Pessoa da direita */}
+            <circle cx="90" cy="24" r="12" fill="rgba(255,255,255,0.4)"/>
+            <path d="M68 72c0-12.15 9.85-22 22-22s22 9.85 22 22" 
+              fill="rgba(255,255,255,0.4)"/>
           </svg>
 
           <div style={{
