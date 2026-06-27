@@ -72,7 +72,7 @@ const SESSIONS = [
     pauta: 'Onde está o dinheiro que você não está vendo',
     descricao: 'Como explorar novos nichos que hoje você nem sabe que precisam do seu conhecimento.',
     autor: '', empresa: 'Gabriel Fiuza',
-    sala: 'Bloco 2',
+    sala: 'Blibiotecaa CEUB',
     horario: '10:50', horarioFim: '12:00',
   },
   {
@@ -132,7 +132,7 @@ const SESSIONS = [
     pauta: 'Sozinho você fatura, em rede você impacta',
     descricao: 'Como fechar projetos colaborativos com outras EJs e agentes do ecossistema.',
     autor: '', empresa: 'Cacau',
-    sala: 'Bloco 2',
+    sala: 'Blibiotecaa CEUB',
     horario: '14:30', horarioFim: '',
   },
   {
