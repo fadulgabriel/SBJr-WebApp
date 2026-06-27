@@ -9,9 +9,8 @@ const CASES = [
     cor: '#54ff00',
     premio: 'Mentorias comerciais personalizadas + Acesso à plataforma de aulas',
     ejs: [
-      { nome: 'Facto', link: '#' },
-      { nome: 'Concreta', link: '#' },
-      { nome: 'XXXX', link: '#' },
+      { nome: 'Capital', link: 'https://drive.google.com/file/d/1cK1McAJMPZNxIAs2jaYbrp3dlRcorM_3/view?usp=sharing' },
+      { nome: 'Concreta', link: 'https://drive.google.com/file/d/1_kF3OXfIZ6zXOeTiRMZHQXLoynv-R5Ng/view?usp=sharing' },
     ],
   }
 ];
@@ -19,21 +18,33 @@ const CASES = [
 const EMBAIXADORAS = [
   {
     posicao: 1,
-    premio: 'Mentoria personalizada da Stone + Mentoria comercial da Omotenashi',
+    premio: 'Mentoria personalizada com a Ricco + Intensivão sobre IA com a BMAI',
     icone: '',
     corMedal: '#FFD700',
   },
   {
     posicao: 2,
-    premio: 'Mentoria personalizada da EloGroup',
+    premio: 'Mentoria personalizada com a IZE + Mentoria Comercial com a Omotenashi',
     icone: '',
     corMedal: '#C0C0C0',
   },
   {
     posicao: 3,
-    premio: 'Mentoria personalizada da Singular',
+    premio: 'Mentoria personalizada com a EloGroup',
     icone: '',
     corMedal: '#CD7F32',
+  },
+  {
+    posicao: 4,
+    premio: 'Treinamento personalizado com a Atuar',
+    icone: '',
+    corMedal: '#7B9EA8',
+  },
+  {
+    posicao: 5,
+    premio: 'Sistema Operacional na EJ com a DataSynq',
+    icone: '',
+    corMedal: '#8B8B8B',
   },
 ];
 
@@ -302,8 +313,6 @@ const EmbaixadoraCard = ({ embaixadora }) => {
 };
 
 const Palco = () => {
-  const [premioBlocoAberto, setPremioBlocoAberto] = useState(false);
-
   return (
     <section id="palco" style={{
       background: 'linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 100%)',
@@ -367,7 +376,6 @@ const Palco = () => {
         marginTop: 0,
         marginBottom: '1.25rem'
       }}>
-        Quem sobe, concorre a prêmios exclusivos!
       </p>
 
       <div style={{
@@ -432,82 +440,6 @@ const Palco = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      <div
-        onClick={() => setPremioBlocoAberto(!premioBlocoAberto)}
-        style={{
-          margin: '2rem 1.5rem 0',
-          background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(255,255,255,0.07)',
-          borderRadius: '16px',
-          padding: '1rem 1.25rem',
-          cursor: 'pointer'
-        }}
-      >
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <span style={{
-            fontFamily: '"Noir Pro", sans-serif',
-            fontWeight: 700,
-            color: 'white',
-            fontSize: '0.88rem'
-          }}>
-            🏆 Prêmios para as EJs do Palco
-          </span>
-          <span style={{
-            fontFamily: '"Noir Pro", sans-serif',
-            color: 'rgba(255,255,255,0.35)',
-            fontSize: '0.8rem',
-            transition: 'transform 0.2s ease',
-            transform: premioBlocoAberto ? 'rotate(180deg)' : 'rotate(0deg)',
-            display: 'inline-block',
-            flexShrink: 0,
-            marginLeft: '0.5rem'
-          }}>
-            ↓
-          </span>
-        </div>
-
-        <div style={{
-          maxHeight: premioBlocoAberto ? '600px' : '0',
-          opacity: premioBlocoAberto ? 1 : 0,
-          overflow: 'hidden',
-          transition: 'max-height 0.3s ease, opacity 0.3s ease'
-        }}>
-          <div style={{
-            marginTop: '0.75rem',
-            borderTop: '1px solid rgba(255,255,255,0.07)',
-            paddingTop: '0.75rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.6rem'
-          }}>
-            {PREMIOS.map((item, idx) => (
-              <div key={idx} style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{
-                  fontFamily: 'Strelka',
-                  fontWeight: 800,
-                  color: 'white',
-                  fontSize: '0.85rem'
-                }}>
-                  {item.premio}
-                </span>
-                <span style={{
-                  fontFamily: '"Noir Pro", sans-serif',
-                  fontWeight: 400,
-                  color: 'rgba(255,255,255,0.35)',
-                  fontSize: '0.75rem'
-                }}>
-                  por {item.parceiro}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
       <div style={{
