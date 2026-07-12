@@ -1,14 +1,14 @@
-# SBJr. Web App 🚀
+# SBJr. 26 Web App 
 
-> Aplicativo mobile-first desenvolvido para o **Sábado Júnior 2026** — o maior evento do movimento empresa júnior do Distrito Federal, organizado pela [Concentro](https://instagram.com/concentrodf).
+> Aplicativo mobile-first desenvolvido para o **Sábado Júnior 2026**, o maior evento do movimento empresa júnior do Distrito Federal, organizado pela [Concentro](https://instagram.com/concentrodf).
 
 ---
 
 ## Sobre o projeto
 
-O SBJr. Web App foi criado para ser acessado pelos participantes **durante o evento**, direto pelo navegador do celular — sem instalação, sem cadastro, sem fricção.
+O SBJr. Web App foi criado para ser acessado pelos participantes **durante o evento**, direto pelo navegador do celular, sem instalação e sem cadastro.
 
-O objetivo é centralizar toda a experiência do evento em um único lugar: programação, stands, cases do palco, rankings e avaliações em tempo real.
+O objetivo é centralizar toda a experiência do evento em um único lugar: programação, stands, cases do palco, rankings e avaliações em tempo real. Além do quiz interativo para uma recomendação da trilha de conteúdo a ser escolhida pelo participante do evento. 
 
 ---
 
@@ -43,128 +43,145 @@ O objetivo é centralizar toda a experiência do evento em um único lugar: prog
 
 ---
 
-## Stack
+## Lógica do Quiz "Descubra sua Trilha"
 
-| Camada | Tecnologia |
+Aprodundando no funcionamento do quiz, uma ferramenta de personalização da experiência do congressista durante o evento. Em 5 perguntas rápidas, ele identifica o perfil da pessoa e o principal problema da EJ dela, para então recomendar as paralelas e stands mais relevantes.
+
+---
+
+## As 5 Perguntas
+
+### P1 — Há quanto tempo você está no MEJ?
+Mede o tempo de experiência no movimento.
+- Menos de 6 meses
+- 6 meses a 1 ano
+- 1 a 2 anos
+- Mais de 2 anos
+
+### P2 — Qual é seu papel hoje na sua EJ?
+Confirma o nível de atuação atual.
+- Ainda estou no processo seletivo / Sou Trainee
+- Membro de área (Consultor, Assessor, Analista)
+- Coordenador, Gerente, Diretor ou Presidente
+
+### P3 — Como você se vê daqui a 1 ano?
+Pergunta de contexto sobre intenção futura.
+Não influencia o cálculo do perfil (peso zero).
+- Quero subir de cargo e liderar mais na EJ
+- Quero usar a EJ para entrar no mercado de trabalho
+- Quero empreender ou criar algo próprio
+- Ainda estou descobrindo meu caminho
+
+### P4 — O que mais trava o crescimento da sua EJ?
+Identifica o gargalo estrutural da EJ. Peso 2.
+- Vendas & Mercado
+- Produto & Inovação
+- Processos Claros
+- Gente & Liderança
+
+### P5 — Se pudesse resolver UM grande problema hoje, qual seria?
+Pergunta âncora — define a trilha principal. Peso 3.
+- Vendas & Mercado
+- Produto & Inovação
+- Processos Claros
+- Gente & Liderança
+
+---
+
+## Como o Perfil é Calculado
+
+O perfil é calculado pelas respostas de **P1 e P2** com os seguintes pesos:
+
+| Pergunta | Peso |
 |---|---|
-| Frontend | React + Vite |
-| Estilização | CSS inline com design tokens |
-| Backend | Supabase (PostgreSQL) |
-| Auth | Anônimo via device_id em localStorage |
-| Deploy | Vercel |
+| P1 — Tempo no MEJ | 1 |
+| P2 — Papel atual | 2 |
+| P3 — Visão de futuro | 0 (não conta) |
+
+O sistema soma os pontos para cada categoria de perfil e o que tiver maior pontuação vence:
+- **Trainee** — pouco tempo no MEJ, ainda no processo seletivo ou início
+- **Membro** — atua como consultor, assessor ou analista
+- **Liderança** — coordenador, gerente, diretor ou presidente
 
 ---
 
-## Design System
+## Como a Trilha é Calculada
 
-O projeto segue a identidade visual oficial do **Sábado Júnior 2026**:
+A trilha é definida pelas respostas de **P4 e P5**:
 
-| Token | Valor |
+| Pergunta | Peso |
 |---|---|
-| Cor primária | `#704595` |
-| Cor secundária | `#f6538c` |
-| Accent | `#54ff00` |
-| Destaque | `#fc3d0d` |
-| Background | `#0d0d0d` |
-| Fonte headings | Strelka 800 |
-| Fonte body | Noir Pro 400/700 |
+| P4 — Gargalo estrutural | 2 |
+| P5 — Problema principal | 3 |
+
+A trilha com maior pontuação vence:
+- **Vendas** — EJ não capta, não fecha, não tem mercado
+- **Produto** — portfólio defasado, entrega de pouco valor
+- **Processos** — caos operacional, falta de fluxo claro
+- **Gente** — membros desmotivados, lideranças despreparadas
 
 ---
 
-## Banco de dados (Supabase)
+## Os 12 Perfis Finais
 
-### Tabela `ratings`
-```sql
-create table ratings (
-  id uuid default gen_random_uuid() primary key,
-  session_id integer not null,
-  rating integer not null check (rating between 1 and 5),
-  device_id text,
-  created_at timestamp default now()
-);
-```
+O resultado final cruza **perfil × trilha (P5)**:
 
-### View `session_ratings`
-```sql
-create view session_ratings as
-select 
-  session_id,
-  round(avg(rating)::numeric, 1) as media,
-  count(*) as total_votos
-from ratings
-group by session_id;
-```
-
-O `device_id` é um UUID gerado anonimamente no primeiro acesso e salvo em `localStorage` — permite análise de correlação entre sessões sem identificar o usuário.
+| | Vendas | Produto | Processos | Gente |
+|---|---|---|---|---|
+| **Trainee** | Caçador de Mercado | Construtor de Valor | Organizador em Ascensão | Conector de Times |
+| **Membro** | Closer em Ascensão | Especialista em Entregas | Executor Estratégico | Agente de Cultura |
+| **Liderança** | Arquiteto Comercial | Visionário de Produto | Líder de Alta Performance | Construtor de Lideranças |
 
 ---
 
-## Como rodar localmente
+## O que o Congressista Recebe
 
-```bash
-# Clone o repositório
-git clone https://github.com/fadulgabriel/SBJr-WebApp.git
+Ao final do quiz, o site mostra:
 
-# Entra na pasta
-cd SBJr-WebApp/sbjr-app
+- **Nome do perfil** — ex: "Arquiteto Comercial"
+- **Magna de abertura** — obrigatória para todos (09:45)
+- **Paralela recomendada — Rodada 1** (10:50) + alternativa
+- **Paralela recomendada — Rodada 2** (14:30) + alternativa
+- **Magna de encerramento** — obrigatória para todos (16:30)
+- **Stands sugeridos** — baseados no perfil e na trilha
 
-# Instala dependências
-npm install
-
-# Roda em desenvolvimento
-npm run dev
-```
-
-Acessa em `http://localhost:5173`
+O resultado fica salvo no celular da pessoa — ela pode fechar o site e voltar para ver a recomendação quando quiser.
 
 ---
 
-## Deploy
+## As 48 Combinações de Recomendação
 
-O projeto está configurado para deploy automático na **Vercel**. Qualquer push na branch `main` publica automaticamente.
+As paralelas sugeridas variam conforme a combinação de **perfil × P4 × P5** — gerando 48 caminhos possíveis (3 perfis × 4 opções P4 × 4 opções P5).
 
-```bash
-# Atualizar dados do evento
-git add .
-git commit -m "atualiza grade"
-git push
-```
+Isso garante que duas pessoas com o mesmo perfil mas problemas diferentes recebam recomendações distintas.
 
 ---
 
-## Estrutura do projeto
+## Dados Coletados
 
-```
-sbjr-app/
-├── public/
-│   └── favicon.png
-├── src/
-│   ├── assets/
-│   │   ├── logo.png
-│   │   ├── esfera.png
-│   │   └── elementos/
-│   ├── components/
-│   │   ├── Hero.jsx
-│   │   ├── Header.jsx
-│   │   ├── Grade.jsx
-│   │   ├── Stands.jsx
-│   │   ├── Palco.jsx
-│   │   ├── Parceiros.jsx
-│   │   └── Footer.jsx
-│   ├── lib/
-│   │   └── supabase.js
-│   ├── App.jsx
-│   └── index.css
-```
+Cada resposta ao quiz salva anonimamente:
+
+| Campo | O que é |
+|---|---|
+| perfil | trainee / membro / lideranca |
+| trilha | vendas / produto / processos / gente |
+| nome_perfil | nome criativo calculado |
+| p1_resp a p5_resp | texto exato de cada resposta |
+| paralela1_principal | pauta recomendada manhã |
+| paralela1_alternativa | pauta alternativa manhã |
+| paralela2_principal | pauta recomendada tarde |
+| paralela2_alternativa | pauta alternativa tarde |
+| stands_sugeridos | stands recomendados |
+| device_id | ID anônimo do dispositivo |
+| created_at | horário do preenchimento (Brasília) |
+
+Nenhum dado pessoal é coletado, apenas respostas e o ID anônimo do celular.
 
 ---
 
 ## Evento
 
 **Sábado Júnior 2026**
-Organização: Concentro — Federação das Empresas Juniores do Distrito Federal
-Instagram: [@concentrodf](https://instagram.com/concentrodf) · [@sabadojr26](https://instagram.com/sabadojr26)
+Instagram: [@sabadojr26](https://instagram.com/sabadojr26)
 
 ---
-
-*Desenvolvido pela Diretoria de Marketing da Concentro DF*
